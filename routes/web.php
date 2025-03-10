@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('beranda');
 });
+
+Route::get('/', [BerandaController::class, 'index']);
 
 Route::get('/tentang-teknik-informatika', function () {
     return view('tentang-teknik-informatika');

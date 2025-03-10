@@ -283,24 +283,34 @@
             </div>
         </section>
         <!-- end section -->
-        <!-- start section -->
+        <!-- Start Section -->
         <section class="position-relative overflow-hidden section-dark">
             <div class="container">
                 <div class="row align-items-center position-relative">
+                    <!-- Kolom Gambar -->
+                    @if ($tentangInformatika && $tentangInformatika->thumbnail)
                     <div class="col-lg-6">
-                        <div class="outside-box-left-300 md-outside-box-left-0" data-bottom-top="transform:scale(1.1, 1.1)" data-top-bottom="transform:scale(1, 1)">
-                            <img src="images/Iwu.png" alt=""/>
+                        <div class="image-container" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
+                            <img src="{{ asset('storage/' . $tentangInformatika->thumbnail) }}" alt="Informatika">
                         </div>
                     </div>
-                    <div class="col-lg-5 offset-lg-1 z-index-9 md-mt-35px" data-anime='{ "el": "childs", "translateX": [15, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="text-dark-gray fw-600 mb-40px md-mb-25px outside-box-left-15 md-outside-box-left-0 ls-minus-3px word-break-normal">Informatika.</h1>
-                        <p class="lh-34 w-95 mb-30px lg-w-100">Lorem ipsum is simply dummy text of the printing and typesetting industry. <span class="text-dark-gray fw-600 text-decoration-line-bottom">12 years of experience</span> we have been constantly providing excellent web solutions which is best in-class experience for our clients. We mainly focus on clients and their requirements.</p>
-                        <a href="/tentang-teknik-informatika" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700"><span class="bg-base-color"></span>Tentang Informatika</a>
+                    @endif
+                    <!-- Kolom Teks -->
+                    @if ($tentangInformatika && $tentangInformatika->deskripsi)
+                    <div class="col-lg-6 content-container">
+                        <h1 class="section-title">Teknik Informatika.</h1>
+                        <p class="section-text">
+                            {!! $tentangInformatika->deskripsi !!}
+                        </p>
+                        <a href="/tentang-teknik-informatika" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
+                            <span class="bg-base-color"></span>Tentang Informatika
+                        </a>
                     </div>
+                    @endif
                 </div>
             </div>
         </section>
-        <!-- end section -->
+        <!-- End Section -->
         <!-- start section -->  
         <section class="p-0 overflow-hidden">
             <div class="container">
@@ -311,43 +321,58 @@
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-md-3 justify-content-center" data-anime='{ "el": "childs", "translateX": [-30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <!-- start process step item -->
+                        <!-- Start Process Step Item -->
                         <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 sm-mb-40px">
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
-                                <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
-                                    <span class="fw-600 number position-relative z-index-1">01</span>
-                                    <div class="box-overlay bg-base-color rounded-circle"></div>
-                                </div>
+                                <!-- Link di sekitar elemen bulat -->
+                                <a href="/visi-misi-tujuan" class="process-step-icon-link">
+                                    <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
+                                        <span class="fw-600 number position-relative z-index-1">01</span>
+                                        <div class="box-overlay bg-base-color rounded-circle"></div>
+                                    </div>
+                                </a>
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Visi</span>
-                            <p class="w-80 md-w-90 d-inline-block">Lorem ipsum is simply dummy text typesetting industry.</p>
+                            @if ($visiMisiTujuan && $visiMisiTujuan->visi)
+                            <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->visi !!}</p>
+                            @endif
                         </div>
-                        <!-- end process step item -->
+                        <!-- End Process Step Item -->
                         <!-- start process step item -->
                         <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 sm-mb-40px">
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
-                                <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
-                                    <span class="fw-600 number position-relative z-index-1">02</span>
-                                    <div class="box-overlay bg-base-color rounded-circle"></div>
-                                </div>
+                                <!-- Link di sekitar elemen bulat -->
+                                <a href="/visi-misi-tujuan" class="process-step-icon-link">
+                                    <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
+                                        <span class="fw-600 number position-relative z-index-1">02</span>
+                                        <div class="box-overlay bg-base-color rounded-circle"></div>
+                                    </div>
+                                </a>
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Misi</span>
-                            <p class="w-80 md-w-90 d-inline-block">Lorem ipsum is simply dummy text typesetting industry.</p>
+                            @if ($visiMisiTujuan && $visiMisiTujuan->misi)
+                            <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->misi !!}</p>
+                            @endif
                         </div>
                         <!-- end process step item -->
                         <!-- start process step item -->
                         <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01">
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2 d-md-none"></span>
-                                <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
-                                    <span class="fw-600 number position-relative z-index-1">03</span>
-                                    <div class="box-overlay bg-base-color rounded-circle"></div>
-                                </div>
+                                <!-- Link di sekitar elemen bulat -->
+                                <a href="/visi-misi-tujuan" class="process-step-icon-link">
+                                    <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
+                                        <span class="fw-600 number position-relative z-index-1">03</span>
+                                        <div class="box-overlay bg-base-color rounded-circle"></div>
+                                    </div>
+                                </a>
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Tujuan</span>
-                            <p class="w-80 md-w-90 d-inline-block">Lorem ipsum is simply dummy text typesetting industry.</p>
+                            @if ($visiMisiTujuan && $visiMisiTujuan->tujuan)
+                            <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->tujuan !!}</p>
+                            @endif
                         </div>
                         <!-- end process step item -->
                     </div>
@@ -358,13 +383,13 @@
             </div>
         </section>
         <!-- end section -->
-         <!-- start page title --> 
+        <!-- start page title --> 
         <section class="p-0">
             <div class="container">
                 <div class="row align-items-center justify-content-center extra-very-small-screen">
                     <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         <h1 class="fw-700 text-dark-gray mb-20px ls-minus-2px">Kata Sambutan</h1>
-                        <h2 class="fw-400 ls-0px mb-0">Selamat datang di website resmi program studi teknik informatika</h2>
+                        <h2 class="fw-400 ls-0px mb-0">Selamat datang di website resmi program studi teknik informatika IWU</h2>
                     </div>
                 </div>
             </div>
@@ -372,29 +397,31 @@
         <!-- end page title -->
         <!-- start section -->
         <section class="p-0 md-pt-50px position-relative">
-            <div class="position-absolute" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
-                <img src="images/Iwu.png" alt="">
-            </div>
             <div class="container">
-                <div class="row align-items-end align-items-lg-center position-relative"> <!-- border-bottom dihapus -->
-                    <div class="col-md-6 order-2 order-md-1 text-center">
-                        <img class="position-relative bottom-minus-1px" src="https://via.placeholder.com/522x570" alt="">
+                <div class="row align-items-center position-relative">
+                    <!-- Kolom Gambar -->
+                    <div class="col-lg-6">
+                        @if ($pimpinanStaff && $pimpinanStaff->foto)
+                        <div class="image-container" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
+                            <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="Informatika">
+                        </div>
+                        @endif
                     </div>
-                    <div class="col-lg-5 offset-lg-1 col-md-6 order-1 order-md-2 position-relative z-index-2 lg-mb-50px sm-mb-35px">
-                        <h5 class="text-dark-gray lh-40 fw-400 mb-20px ls-minus-1px">
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. 
-                            <span class="fw-600 text-decoration-line-bottom-medium">working together to bring</span> 
-                            you better results you need team.
-                        </h5>
-                        <div class="fs-18 text-dark-gray mt-5px">
-                            <span class="fw-600">Tri Ramdhan,</span> Ketua Program Studi Teknik Informatika
+                    <!-- Kolom Teks -->
+                    <div class="col-lg-6 content-container">
+                        @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
+                        <p class="section-text">
+                            {!! $pimpinanStaff->kata_sambutan !!}
+                        </p>
+                        @endif
+                        <div class="fs-18 text-dark-gray mt-5px mb-10px">
+                            @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
+                            <span class="fw-600">{!! $pimpinanStaff->nama !!},</span> {!! $pimpinanStaff->status !!}
+                            @endif
                         </div>
-                        <!-- Tombol tetap di bawah teks -->
-                        <div class="mt-3">
-                            <a href="/detail-kata-sambutan" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
-                                <span class="bg-base-color"></span>Lihat Selengkapnya
-                            </a>
-                        </div>
+                        <a href="/detail-kata-sambutan" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
+                            <span class="bg-base-color"></span>Lihat Selengkapnya
+                        </a>
                     </div>
                 </div>
             </div>
@@ -412,61 +439,42 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 p-md-0">
-                        <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    <div class="col-12">
+                        <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                             <li class="grid-sizer"></li>
-                            <!-- start blog item -->
+                            <!-- start blog list -->
+                            @foreach ($publikasi->where('status', 'Berita') as $item)
                             <li class="grid-item">
-                                <div class="card bg-transparent border-0 h-100">
-                                    <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="demo-web-agency-blog-single-creative.html"><img src="images/Iwu.png" alt=""></a>
+                                <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover">
+                                    <div class="blog-image">
+                                        @if ($item->gambar)
+                                        <a href="/detail-berita" class="d-block"><img src="{{ asset('storage/' . $item->gambar) }}" alt="" /></a>
+                                        @endif
+                                        <div class="blog-categories">
+                                            <a href="/detail-berita" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Berita</a>
+                                        </div>
                                     </div>
-                                    <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                        <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="demo-web-agency-blog.html" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Teknologi</a><a href="#" class="blog-date text-medium-gray-hover">08 Januari 2025</a></span>
-                                        <a href="demo-web-agency-blog-single-creative.html" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Lorem ipsum is simply dummy text of the printing and typesetting industry.</a>
+                                    <div class="card-body p-12 lg-p-10">
+                                        @if ($item->judul)
+                                        <a href="/detail-berita" class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block">{!! $item->judul !!}</a>
+                                        @endif
+                                        @if ($item->deskripsi)
+                                        <p>{!! $item->deskripsi !!}</p>
+                                        @endif
+                                        <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase">
+                                            <div class="me-auto">
+                                                @if ($item->waktu)
+                                                <span class="blog-date d-inline-block fw-600 text-dark-gray">
+                                                    {{ \Carbon\Carbon::parse($item->waktu)->translatedFormat('d F Y') }}
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
-                            <!-- end blog item --> 
-                            <!-- start blog item -->
-                            <li class="grid-item">
-                                <div class="card bg-transparent border-0 h-100">
-                                    <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="demo-web-agency-blog-single-creative.html"><img src="images/Iwu.png" alt=""></a>
-                                    </div>
-                                    <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                        <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="demo-web-agency-blog.html" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Teknologi</a><a href="#" class="blog-date text-medium-gray-hover">12 Januari 2025</a></span>
-                                        <a href="demo-web-agency-blog-single-creative.html" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Lorem ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- end blog item --> 
-                            <!-- start blog item -->
-                            <li class="grid-item">
-                                <div class="card bg-transparent border-0 h-100">
-                                    <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="demo-web-agency-blog-single-creative.html"><img src="images/Iwu.png" alt=""></a>
-                                    </div>
-                                    <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                        <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="demo-web-agency-blog.html" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Teknologi</a><a href="#" class="blog-date text-medium-gray-hover">20 Januari 2025</a></span>
-                                        <a href="demo-web-agency-blog-single-creative.html" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Lorem ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- end blog item -->
-                             <!-- start blog item -->
-                            <li class="grid-item">
-                                <div class="card bg-transparent border-0 h-100">
-                                    <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                        <a href="demo-web-agency-blog-single-creative.html"><img src="images/Iwu.png" alt=""></a>
-                                    </div>
-                                    <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                        <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="demo-web-agency-blog.html" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Teknologi</a><a href="#" class="blog-date text-medium-gray-hover">12 Januari 2025</a></span>
-                                        <a href="demo-web-agency-blog-single-creative.html" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Lorem ipsum is simply dummy text of the printing and typesetting industry.</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- end blog item --> 
+                            @endforeach
+                            <!-- end blog list -->
                         </ul>
                     </div>
                 </div>

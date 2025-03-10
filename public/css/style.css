@@ -19338,3 +19338,63 @@ footer .footer-navbar .nav-item:last-child a {
 .footer-demo img {
   max-height: 55px !important;
 }
+.image-container {
+  width: 100%;
+  max-width: 500px; /* Batasi lebar maksimal */
+  margin: 0 auto; /* Tengah pada layar kecil */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Styling untuk teks dan tombol */
+.content-container {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #131313;
+  margin-bottom: 20px;
+}
+
+.section-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  font-weight: 700;
+  color: #131313;
+  text-decoration: underline;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .row {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .image-container {
+      max-width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .section-title {
+      font-size: 2rem;
+  }
+
+  .section-text {
+      font-size: 1rem;
+  }
+}

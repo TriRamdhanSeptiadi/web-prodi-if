@@ -229,28 +229,6 @@
                     <div class="col-xl-5 offset-xl-1 col-lg-6" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         <h2 class="fw-700 text-dark-gray ls-minus-1px">Tentang Teknik Informatika</h2>
                         <p class="w-95 lg-w-100 mb-30px">Lorem ipsum dolor sit amet consectetur adipiscing do eiusmod tempor incididunt ut labore et dolore.</p>
-                        <div class="mb-40px">
-                            <div class="col icon-with-text-style-08 mb-15px">
-                                <div class="feature-box feature-box-left-icon-middle bg-very-light-gray border-radius-5px pt-15px pb-15px ps-25px pe-25px">
-                                    <div class="feature-box-icon feature-box-icon-rounded w-25px h-25px rounded-circle bg-base-color box-shadow-large me-10px">
-                                        <i class="fa-solid fa-check fs-11 text-white"></i> 
-                                    </div>
-                                    <div class="feature-box-content"> 
-                                        <span class="d-block fs-17 text-dark-gray fw-500 ls-minus-05px">Lorem ipsum dolor sit amet consectetur adipiscing do eiusmod tempor incididunt ut labore et dolore.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col icon-with-text-style-08">
-                                <div class="feature-box feature-box-left-icon-middle bg-very-light-gray border-radius-5px pt-15px pb-15px ps-25px pe-25px">
-                                    <div class="feature-box-icon feature-box-icon-rounded w-25px h-25px rounded-circle bg-base-color box-shadow-large me-10px">
-                                        <i class="fa-solid fa-check fs-11 text-white"></i> 
-                                    </div>
-                                    <div class="feature-box-content"> 
-                                        <span class="d-block fs-17 text-dark-gray fw-500 ls-minus-05px">Lorem ipsum dolor sit amet consectetur adipiscing do eiusmod tempor incididunt ut labore et dolore.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div> 
                 </div>
             </div>
