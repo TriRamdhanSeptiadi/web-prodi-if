@@ -297,11 +297,11 @@
                     @endif
                     <!-- Kolom Teks -->
                     @if ($tentangInformatika && $tentangInformatika->deskripsi)
-                    <div class="col-lg-6 content-container">
+                    <div class="col-lg-6 content-container" style="height: 400px;" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
                         <h1 class="section-title">Teknik Informatika.</h1>
                         <p class="section-text">
                             {!! $tentangInformatika->deskripsi !!}
-                        </p>
+                        </p>    
                         <a href="/tentang-teknik-informatika" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
                             <span class="bg-base-color"></span>Tentang Informatika
                         </a>
@@ -326,7 +326,7 @@
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
                                 <!-- Link di sekitar elemen bulat -->
-                                <a href="/visi-misi-tujuan" class="process-step-icon-link">
+                                <a href="/visi-misi-tujuan#visi" class="process-step-icon-link">
                                     <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
                                         <span class="fw-600 number position-relative z-index-1">01</span>
                                         <div class="box-overlay bg-base-color rounded-circle"></div>
@@ -344,7 +344,7 @@
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
                                 <!-- Link di sekitar elemen bulat -->
-                                <a href="/visi-misi-tujuan" class="process-step-icon-link">
+                                <a href="/visi-misi-tujuan#misi" class="process-step-icon-link">
                                     <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
                                         <span class="fw-600 number position-relative z-index-1">02</span>
                                         <div class="box-overlay bg-base-color rounded-circle"></div>
@@ -362,7 +362,7 @@
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2 d-md-none"></span>
                                 <!-- Link di sekitar elemen bulat -->
-                                <a href="/visi-misi-tujuan" class="process-step-icon-link">
+                                <a href="/visi-misi-tujuan#tujuan" class="process-step-icon-link">
                                     <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
                                         <span class="fw-600 number position-relative z-index-1">03</span>
                                         <div class="box-overlay bg-base-color rounded-circle"></div>
@@ -408,7 +408,7 @@
                         @endif
                     </div>
                     <!-- Kolom Teks -->
-                    <div class="col-lg-6 content-container">
+                    <div class="col-lg-6 content-container" style="height: 400px;" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
                         @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
                         <p class="section-text">
                             {!! $pimpinanStaff->kata_sambutan !!}
@@ -439,45 +439,53 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                            <li class="grid-sizer"></li>
-                            <!-- start blog list -->
-                            @foreach ($publikasi->where('status', 'Berita') as $item)
-                            <li class="grid-item">
-                                <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover">
-                                    <div class="blog-image">
-                                        @if ($item->gambar)
-                                        <a href="/detail-berita" class="d-block"><img src="{{ asset('storage/' . $item->gambar) }}" alt="" /></a>
-                                        @endif
-                                        <div class="blog-categories">
-                                            <a href="/detail-berita" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Berita</a>
-                                        </div>
+                <div class="col-12">
+                    <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                        <li class="grid-sizer"></li>
+                        <!-- start blog list -->
+                        @foreach ($publikasi->where('status', 'Berita') as $item)
+                        <li class="grid-item">
+                            <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover" style="min-height: 450px; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div class="blog-image" style="height: 200px; overflow: hidden;">
+                                    @if ($item->gambar)
+                                    <a href="/detail-berita" class="d-block">
+                                        <img src="{{ asset('storage/' . $item->gambar) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;" />
+                                    </a>
+                                    @endif
+                                    <div class="blog-categories">
+                                        <a href="/detail-berita" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Berita</a>
                                     </div>
-                                    <div class="card-body p-12 lg-p-10">
-                                        @if ($item->judul)
-                                        <a href="/detail-berita" class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block">{!! $item->judul !!}</a>
-                                        @endif
-                                        @if ($item->deskripsi)
-                                        <p>{!! $item->deskripsi !!}</p>
-                                        @endif
-                                        <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase">
-                                            <div class="me-auto">
-                                                @if ($item->waktu)
-                                                <span class="blog-date d-inline-block fw-600 text-dark-gray">
-                                                    {{ \Carbon\Carbon::parse($item->waktu)->translatedFormat('d F Y') }}
-                                                </span>
-                                                @endif
-                                            </div>
+                                </div>
+                                <div class="card-body p-12 lg-p-10" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                    @if ($item->judul)
+                                    <a href="/detail-berita" 
+                                    class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block" 
+                                    style="min-height: 50px; max-height: 67px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                                    {!! $item->judul !!}
+                                    </a>
+                                    @endif
+                                    @if ($item->deskripsi)
+                                    <p style="min-height: 70px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                                        {!! $item->deskripsi !!}
+                                    </p>
+                                    @endif
+                                    <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase mt-auto">
+                                        <div class="me-auto">
+                                            @if ($item->waktu)
+                                            <span class="blog-date d-inline-block fw-600 text-dark-gray">
+                                                {{ \Carbon\Carbon::parse($item->waktu)->translatedFormat('d F Y') }}
+                                            </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            @endforeach
-                            <!-- end blog list -->
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                        @endforeach
+                        <!-- end blog list -->
+                    </ul>
                 </div>
+            </div>
             </div>
         </section>
         <!-- end section -->

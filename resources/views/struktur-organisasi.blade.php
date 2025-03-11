@@ -232,16 +232,20 @@
                         </h5>
 
                         <!-- Paragraf dengan animasi fade-in dan slide-up -->
+                        @if ($strukturOrganisasi && $strukturOrganisasi->teks)
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15"
                         style="text-align: justify;"
                         data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+                            {!! $strukturOrganisasi->teks !!}
                         </p>
+                        @endif
 
+                        @if ($strukturOrganisasi && $strukturOrganisasi->foto)
                         <div class="d-flex justify-content-center align-items-center animation-float" 
                             data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img class="w-50" src="images/example1.jpeg" alt="">
+                            <img class="w-50" src="{{ asset('storage/' . $strukturOrganisasi->foto) }}" alt="">
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

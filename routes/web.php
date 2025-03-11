@@ -2,6 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\TentangTeknikInformatikaController;
+use App\Http\Controllers\StrukturOrganisasiController;
+use App\Http\Controllers\KampusController;
+use App\Http\Controllers\DosenStaffController;
+use App\Http\Controllers\AkreditasiController;
+use App\Http\Controllers\KarirController;
+use App\Http\Controllers\AkademikController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\ProfilLulusanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +36,8 @@ Route::get('/tentang-teknik-informatika', function () {
     return view('tentang-teknik-informatika');
 });
 
+Route::get('/tentang-teknik-informatika', [TentangTeknikInformatikaController::class, 'index']);
+
 Route::get('/visi-misi-tujuan', function () {
     return view('visi-misi-tujuan');
 });
@@ -32,41 +46,61 @@ Route::get('/struktur-organisasi', function () {
     return view('struktur-organisasi');
 });
 
+Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'index']);
+
 Route::get('/fasilitas', function () {
     return view('fasilitas');
 });
+
+Route::get('/fasilitas', [KampusController::class, 'index']);
 
 Route::get('/dosen', function () {
     return view('dosen');
 });
 
+Route::get('/dosen', [DosenStaffController::class, 'index']);
+
 Route::get('/akreditasi', function () {
     return view('akreditasi');
 });
+
+Route::get('/akreditasi', [AkreditasiController::class, 'index']);
 
 Route::get('/karir', function () {
     return view('karir');
 });
 
+Route::get('/karir', [KarirController::class, 'index']);
+
 Route::get('/kurikulum', function () {
     return view('kurikulum');
 });
+
+Route::get('/kurikulum', [AkademikController::class, 'index']);
 
 Route::get('/profil-lulusan', function () {
     return view('profil-lulusan');
 });
 
+Route::get('/profil-lulusan', [ProfilLulusanController::class, 'index']);
+
 Route::get('/artikel', function () {
     return view('artikel');
 });
+
+Route::get('/artikel', [ArtikelController::class, 'index']);
 
 Route::get('/berita', function () {
     return view('berita');
 });
 
+Route::get('/berita', [BeritaController::class, 'index']);
+
 Route::get('/kegiatan', function () {
     return view('kegiatan');
 });
+
+Route::get('/kegiatan', [KegiatanController::class, 'index']);
 
 Route::get('/pendaftaran', function () {
     return view('pendaftaran');

@@ -225,11 +225,6 @@
                 <div class="card shadow-lg border-0 rounded-3 overflow-hidden mb-0" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card-body p-4">
                         <h5 class="text-dark-gray fw-700" data-aos="fade-down" data-aos-duration="1000">Visi, Misi dan Tujuan</h5>
-
-                        <div class="d-flex justify-content-center align-items-center animation-float" 
-                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img class="w-50" src="images/example1.jpeg" alt="">
-                        </div>
                         
                         <ul class="nav nav-tabs mb-1" id="myTab" role="tablist" style="border-bottom: 2px solid #ddd;" data-aos="fade-left" data-aos-duration="1000">
                             <li class="nav-item me-0" role="presentation" style="margin-top: 30px;">

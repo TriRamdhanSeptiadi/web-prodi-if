@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pimpinan_staff', function (Blueprint $table) {
+        Schema::create('struktur_organisasis', function (Blueprint $table) {
             $table->id();
+            $table->text('teks');
             $table->text('foto');
-            $table->enum('status', ['Kepala Program Studi Teknik Informatika', 'Dosen', 'Staf']);
-            $table->text('nama');
-            $table->text('kata_sambutan');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pimpinan_staff');
+        Schema::dropIfExists('struktur_organisasis');
     }
 };

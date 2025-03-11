@@ -218,7 +218,7 @@
             </nav>
             <!-- end navigation -->
         </header>
-        <!-- end header --> 
+        <!-- end header -->
         <!-- Start Section -->
         <section id="staff-dosen" class="mb-0 pb-0" style="margin-top: 50px;">
             <div class="container text-center">
@@ -230,57 +230,26 @@
                                 <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
                                     <li class="grid-sizer"></li>
                                     <!-- start blog item -->
+                                    @foreach ($pimpinanStaff as $item)
                                     <li class="grid-item">
                                         <div class="card bg-transparent border-0 h-100">
+                                            @if ($item->foto)
                                             <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                                <a href="/detail-dosen"><img src="images/Iwu.png" alt=""></a>
+                                                <a href="/detail-dosen"><img src="{{ asset('storage/' . $item->foto) }}" alt=""></a>
                                             </div>
+                                            @endif
                                             <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                                <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="/detail-dosen" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Tri Ramdhan</a></span>
-                                                <a href="/detail-dosen" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Kepala Program Studi</a>
+                                                @if ($item->nama)
+                                                <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="/detail-dosen" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">{!! $item->nama !!}</a></span>
+                                                @endif
+                                                @if ($item->status)
+                                                <a href="/detail-dosen" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">{!! $item->status !!}</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </li>
-                                    <!-- end blog item --> 
-                                    <!-- start blog item -->
-                                    <li class="grid-item">
-                                        <div class="card bg-transparent border-0 h-100">
-                                            <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                                <a href="/detail-dosen"><img src="images/Iwu.png" alt=""></a>
-                                            </div>
-                                            <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                                <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="/detail-dosen" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Tri Ramdhan</a></span>
-                                                <a href="/detail-dosen" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Kepala Program Studi</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- end blog item --> 
-                                    <!-- start blog item -->
-                                    <li class="grid-item">
-                                        <div class="card bg-transparent border-0 h-100">
-                                            <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                                <a href="/detail-dosen"><img src="images/Iwu.png" alt=""></a>
-                                            </div>
-                                            <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                                <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="/detail-dosen" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Tri Ramdhan</a></span>
-                                                <a href="/detail-dosen" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Kepala Program Studi</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- end blog item -->
-                                     <!-- start blog item -->
-                                    <li class="grid-item">
-                                        <div class="card bg-transparent border-0 h-100">
-                                            <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                                <a href="/detail-dosen"><img src="images/Iwu.png" alt=""></a>
-                                            </div>
-                                            <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                                <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="/detail-dosen" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">Tri Ramdhan</a></span>
-                                                <a href="/detail-dosen" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">Kepala Program Studi</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- end blog item --> 
+                                    @endforeach
+                                    <!-- end blog item -->  
                                 </ul>
                             </div>
                         </div>

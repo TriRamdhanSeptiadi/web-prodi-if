@@ -232,16 +232,20 @@
                         </h5>
 
                         <!-- Paragraf dengan animasi fade-in dan slide-up -->
+                        @if ($kurikulum && $kurikulum->teks)
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15"
                         style="text-align: justify;"
                         data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+                            {!! $kurikulum->teks !!}
                         </p>
+                        @endif
 
+                        @if ($kurikulum && $kurikulum->foto)
                         <div class="d-flex justify-content-center align-items-center animation-float" 
                             data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img class="w-50" src="images/example1.jpeg" alt="">
+                            <img class="w-50" src="{{ asset('storage/' . $kurikulum->foto) }}" alt="">
                         </div>
+                        @endif
 
                     </div>
                 </div>
@@ -259,11 +263,6 @@
                             data-anime='{ "translateY": [20, 0], "opacity": [0,1], "duration": 800, "delay": 200, "easing": "easeOutQuad" }'>
                             Struktur Kurikulum
                         </h5>
-
-                        <div class="d-flex justify-content-center align-items-center animation-float" 
-                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img class="w-50" src="images/example1.jpeg" alt="">
-                        </div>
 
                         <!-- Paragraph with fade-in and slide-up animation -->
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15"
@@ -589,10 +588,12 @@
                         </h5>
 
                         <!-- Paragraph with fade-in and slide-up animation -->
+                        @if ($standarKompetensiLulusan->first() && $standarKompetensiLulusan->first()->teks)
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;"
                             data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+                            {!! $standarKompetensiLulusan->first()->teks !!} 
                         </p>
+                        @endif
 
                         <!-- Table with fade-in animation -->
                         <div class="table-responsive"
@@ -605,23 +606,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php 
+                                        $counter = 1; 
+                                        $subCounter = 1; 
+                                    @endphp
+                                    @foreach ($standarKompetensiLulusan as $item)
                                     <tr>
-                                        <td class="fs-15">1.1</td>
-                                        <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                        <td class="fs-15">{{ $counter }}.{{ $subCounter++ }}</td>
+                                        @if ($item->deskripsi)
+                                        <td style="text-align: left;" class="fs-15">{!! $item->deskripsi !!}</td>
+                                        @endif
                                     </tr>
-                                    <tr>
-                                        <td class="fs-15">1.2</td>
-                                        <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown:
-                                            <ul style="list-style-type: disc; padding-left: 20px;">
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fs-15">1.3</td>
-                                        <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -838,14 +834,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php 
+                                        $counter = 1;
+                                    @endphp
+                                    @foreach ($sasaranKualitas as $item)
                                     <tr data-anime='{ "opacity": [0,1], "duration": 600, "delay": 200, "easing": "easeOutQuad" }'>
-                                        <td class="fs-15">1</td>
-                                        <td class="fs-15" style="text-align: justify;">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                        <td class="fs-15">{{ $counter++ }}</td>
+                                        @if ($item->deskripsi)
+                                        <td class="fs-15" style="text-align: justify;">{!! $item->deskripsi !!}</td>
+                                        @endif
                                     </tr>
-                                    <tr data-anime='{ "opacity": [0,1], "duration": 600, "delay": 400, "easing": "easeOutQuad" }'>
-                                        <td class="fs-15">2</td>
-                                        <td class="fs-15" style="text-align: justify;">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

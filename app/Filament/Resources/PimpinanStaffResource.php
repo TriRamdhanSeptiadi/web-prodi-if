@@ -30,17 +30,17 @@ class PimpinanStaffResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('foto')->required(),
                 Forms\Components\Select::make('status')
-                ->options([
-                    'Kepala Program Studi Teknik Informatika' => 'Kepala Program Studi Teknik Informatika',
-                    'Dosen' => 'Dosen',
-                    'Staff' => 'Staff',
-                ])
-                ->reactive()
-                ->required(),
+                    ->options([
+                        'Kepala Program Studi Teknik Informatika' => 'Kepala Program Studi Teknik Informatika',
+                        'Dosen' => 'Dosen',
+                        'Staff' => 'Staff',
+                    ])
+                    ->reactive()
+                    ->required(),
                 Forms\Components\TextInput::make('nama')->required(),
                 Forms\Components\TextInput::make('kata_sambutan')
-                ->visible(fn (Get $get) => $get('status') === 'Kepala Program Studi Teknik Informatika') // Muncul hanya jika "dekan"
-                ->required(),
+                ->visible(fn (Get $get) => $get('status') === 'Kepala Program Studi Teknik Informatika') 
+                ->required(fn (Get $get): bool => $get('status') === 'Kepala Program Studi Teknik Informatika'),
             ]);
     }
 

@@ -226,16 +226,13 @@
                     <div class="card-body p-4">
                         <!-- Judul -->
                         <h5 class="text-dark-gray fw-700" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 100, "easing": "easeOutQuad" }'>Peluang Karir</h5>
-
-                        <div class="d-flex justify-content-center align-items-center animation-float" 
-                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img class="w-50" src="images/example1.jpeg" alt="">
-                        </div>
                         
                         <!-- Paragraf -->
+                        @if ($karir->first() && $karir->first()->teks)
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify; margin-top: 30px;" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 200, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.    
+                            {!! $karir->first()->teks !!}  
                         </p>
+                        @endif
 
                         <div class="table-responsive">
                             <table class="table table-bordered mt-1" data-anime='{ "el": "childs", "opacity": [0,1], "duration": 600, "staggervalue": 300, "easing": "easeOutQuad" }'>
@@ -247,26 +244,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $counter = 1; @endphp
+                                    @foreach ($karir as $item)
                                     <tr data-anime='{ "opacity": [0,1], "duration": 600, "delay": 300, "easing": "easeOutQuad" }'>
-                                        <td class="fs-15">1</td>
-                                        <td class="fs-15">Sektor Pendidikan</td>
+                                        <td class="fs-15">{{ $counter++ }}</td>
+                                        @if ($item->sektor)
+                                        <td class="fs-15">{!! $item->sektor !!}</td>
+                                        @endif
+                                        @if ($item->deskripsi)
                                         <td style="text-align: justify;" class="fs-15">
                                             <ul style="list-style-type: disc; padding-left: 20px;">
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
+                                                <li>{!! $item->deskripsi !!}</li>
                                             </ul>
                                         </td>
-                                    </tr>
-                                    <tr data-anime='{ "opacity": [0,1], "duration": 600, "delay": 500, "easing": "easeOutQuad" }'>
-                                        <td class="fs-15">2</td>
-                                        <td class="fs-15">Industri</td>
-                                        <td style="text-align: justify;" class="fs-15">
-                                            <ul style="list-style-type: disc; padding-left: 20px;">
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                            </ul>
-                                        </td>
-                                    </tr>     
+                                        @endif
+                                    </tr>   
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

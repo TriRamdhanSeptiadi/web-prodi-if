@@ -227,15 +227,12 @@
                         <!-- Judul -->
                         <h5 class="text-dark-gray fw-700" data-anime='{ "opacity": [0, 1], "translate": [0, 0], "duration": 600, "delay": 300, "staggervalue": 300, "easing": "easeOutQuad" }'>Profil Lulusan Teknik Informatika</h5>
 
-                        <div class="d-flex justify-content-center align-items-center animation-float" 
-                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img class="w-50" src="images/example1.jpeg" alt="">
-                        </div>
-
                         <!-- Paragraf -->
+                        @if ($profilLulusan->first() && $profilLulusan->first()->teks)
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify; margin-top: 30px;" data-anime='{ "opacity": [0, 1], "translate": [0, 0], "duration": 600, "delay": 400, "staggervalue": 400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+                            {!! $profilLulusan->first()->teks !!} 
                         </p>
+                        @endif
 
                         <div class="table-responsive">
                             <table class="table table-bordered mt-1">
@@ -247,26 +244,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php 
+                                        $counter = 1;
+                                    @endphp
+                                    @foreach ($profilLulusan as $item)
                                     <tr data-anime='{ "opacity": [0, 1], "translateX": [30, 0], "duration": 600, "delay": 500, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                        <td class="fs-15">1</td>
-                                        <td class="fs-15">Akademisi dan Peneliti</td>
+                                        <td class="fs-15">{{ $counter }}</td>
+                                        @if ($item->profil_lulusan)
+                                        <td class="fs-15">{!! $item->profil_lulusan !!}</td>
+                                        @endif
                                         <td style="text-align: justify;" class="fs-15">
                                             <ul style="list-style-type: disc; padding-left: 20px;">
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
+                                                @if ($item->deskripsi)
+                                                <li>{!! $item->deskripsi !!}</li>
+                                                @endif
                                             </ul>
                                         </td>
                                     </tr>
-                                    <tr data-anime='{ "opacity": [0, 1], "translateX": [30, 0], "duration": 600, "delay": 600, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                        <td class="fs-15">2</td>
-                                        <td class="fs-15">Praktisi di Bidang Konservasi dan Lingkungan</td>
-                                        <td style="text-align: justify;" class="fs-15">
-                                            <ul style="list-style-type: disc; padding-left: 20px;">
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                                <li>Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -291,26 +286,19 @@
                                 <!-- start testimonial item -->
                                 <div class="swiper-slide">
                                     <div class="row align-items-center justify-content-center">
+                                        @foreach ($testimoniAlumni as $item)
                                         <div class="col-8 col-md-4 col-sm-6 text-center md-mb-30px">
                                             <img alt="" src="images/Iwu.png">
                                         </div>
                                         <div class="col-lg-5 col-md-7 last-paragraph-no-margin text-center text-md-start">
-                                            <span class="mb-5px d-table fs-18 lh-30 fw-500 text-dark-gray">Their team are easy to work with and helped me make amazing websites in a short amount of time. Thanks guys for all your hard work. Trust us we looked for a very long time.</span>
-                                            <span class="fs-15 text-uppercase fw-800 text-base-color ls-1px">Tri Ramdhan Septiadi</span>
+                                            @if ($item->teks)
+                                            <span class="mb-5px d-table fs-18 lh-30 fw-500 text-dark-gray">{!! $item->teks !!}</span>
+                                            @endif
+                                            @if ($item->nama)
+                                            <span class="fs-15 text-uppercase fw-800 text-base-color ls-1px">{!! $item->nama !!}</span>
+                                            @endif
                                         </div>
-                                    </div>
-                                </div>
-                                <!-- end testimonial item -->
-                                <!-- start testimonial item -->
-                                <div class="swiper-slide">
-                                    <div class="row align-items-center justify-content-center">
-                                        <div class="col-8 col-md-4 col-sm-6 text-center md-mb-30px">
-                                            <img alt="" src="images/Iwu.png">
-                                        </div>
-                                        <div class="col-lg-5 col-md-7 last-paragraph-no-margin text-center text-md-start">
-                                            <span class="mb-5px d-table fs-18 lh-30 fw-500 text-dark-gray">Their team are easy to work with and helped me make amazing websites in a short amount of time. Thanks guys for all your hard work. Trust us we looked for a very long time.</span>
-                                            <span class="fs-15 text-uppercase fw-800 text-base-color ls-1px">Arif Rachmat Darmawan</span>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- end testimonial item -->

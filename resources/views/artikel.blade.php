@@ -230,81 +230,53 @@
                     </div>                    
                 </div>                
                 <div class="row">
-                    <div class="col-12">
-                        <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                            <li class="grid-sizer"></li>
-                            <!-- start blog item -->
-                            <li class="grid-item">
-                                <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover">
-                                    <div class="blog-image">
-                                        <a href="/detail-artikel" class="d-block"><img src="images/example1.jpeg" alt="" /></a>
-                                        <div class="blog-categories">
-                                            <a href="/detail-artikel" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Artikel 1</a>
-                                        </div>
+                <div class="col-12">
+                    <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                        <li class="grid-sizer"></li>
+                        <!-- start blog list -->
+                        @foreach ($publikasi->where('status', 'Artikel') as $item)
+                        <li class="grid-item">
+                            <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover" style="min-height: 450px; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div class="blog-image" style="height: 200px; overflow: hidden;">
+                                    @if ($item->gambar)
+                                    <a href="/detail-berita" class="d-block">
+                                        <img src="{{ asset('storage/' . $item->gambar) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;" />
+                                    </a>
+                                    @endif
+                                    <div class="blog-categories">
+                                        <a href="/detail-berita" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Berita</a>
                                     </div>
-                                    <div class="card-body p-12 lg-p-10">
-                                        <a href="/detail-artikel" class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block">Exploring the evolution of electric charging technology.</a>
-                                        <p>Lorem ipsum dolor consectetur adipiscing eiusmod tempor...</p>
-                                        <div class="author d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase">
-                                            <div class="me-auto">
-                                                <span class="blog-date d-inline-block fw-600 text-dark-gray">12 Februari 2025</span>
-                                                <div class="d-inline-block author-name fw-600 text-dark-gray"><a href="/detail-artikel" class="text-dark-gray text-decoration-line-bottom">Tri Ramdhan Septiadi</a></div>
-                                            </div>
+                                </div>
+                                <div class="card-body p-12 lg-p-10" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                    @if ($item->judul)
+                                    <a href="/detail-berita" 
+                                    class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block" 
+                                    style="min-height: 50px; max-height: 67px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                                    {!! $item->judul !!}
+                                    </a>
+                                    @endif
+                                    @if ($item->deskripsi)
+                                    <p style="min-height: 70px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                                        {!! $item->deskripsi !!}
+                                    </p>
+                                    @endif
+                                    <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase mt-auto">
+                                        <div class="me-auto">
+                                            @if ($item->waktu)
+                                            <span class="blog-date d-inline-block fw-600 text-dark-gray">
+                                                {{ \Carbon\Carbon::parse($item->waktu)->translatedFormat('d F Y') }}
+                                            </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <li class="grid-item">
-                                <div
-                                    class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover">
-                                    <div class="blog-image">
-                                        <a href="/detail-artikel" class="d-block"><img src="images/example1.jpeg" alt="" /></a>
-                                        <div class="blog-categories">
-                                            <a href="/detail-artikel"
-                                               class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Artikel 2</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-12 lg-p-10">
-                                        <a href="/detail-artikel" class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block">Renewable energy sources for a brighter tomorrow.</a>
-                                        <p>Lorem ipsum dolor consectetur adipiscing eiusmod tempor...</p>
-                                        <div class="author d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase">
-                                            <div class="me-auto">
-                                                <span class="blog-date d-inline-block fw-600 text-dark-gray">13 Februari 2025</span>
-                                                <div class="d-inline-block author-name fw-600 text-dark-gray"><a href="/detail-artikel" class="text-dark-gray text-decoration-line-bottom">Arif Rachmat Darmawan</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <li class="grid-item">
-                                <div
-                                    class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover">
-                                    <div class="blog-image">
-                                        <a href="/detail-artikel" class="d-block"><img src="images/example1.jpeg" alt="" /></a>
-                                        <div class="blog-categories">
-                                            <a href="/detail-artikel" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Artikel 3</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-12 lg-p-10">
-                                        <a href="/detail-artikel" class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block">Exploring green energy solutions for a cleaner future.</a>
-                                        <p>Lorem ipsum dolor consectetur adipiscing eiusmod tempor...</p>
-                                        <div class="author d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase">
-                                            <div class="me-auto">
-                                                <span class="blog-date d-inline-block fw-600 text-dark-gray">14 Februari 2025</span>
-                                                <div class="d-inline-block author-name fw-600 text-dark-gray"><a href="/detail-artikel" class="text-dark-gray text-decoration-line-bottom">Tri Ramdhan Septiadi</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- end blog item -->
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                        @endforeach
+                        <!-- end blog list -->
+                    </ul>
                 </div>
+            </div>
             </div>
         </section>
         <!-- end section -->

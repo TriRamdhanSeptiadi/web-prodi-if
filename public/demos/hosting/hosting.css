@@ -140,7 +140,7 @@ footer .footer-logo img {
     max-height: 32px;
 }
 .footer-dark a:hover {
-    color: var(--white);
+    color: var(--base-color);
 }
 footer ul li {
     margin-bottom: 0;

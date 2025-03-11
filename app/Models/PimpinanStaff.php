@@ -16,4 +16,9 @@ class PimpinanStaff extends Model
         'status',
         'kata_sambutan'
     ];
+
+    public function kataSambutan()
+    {
+        return $this->hasOne(KataSambutan::class, 'nama', 'id');
+    }
 }
