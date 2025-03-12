@@ -408,13 +408,13 @@
                         @endif
                     </div>
                     <!-- Kolom Teks -->
-                    <div class="col-lg-6 content-container" style="height: 400px;" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
+                    <div class="col-lg-6 content-container" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
                         @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
                         <p class="section-text">
                             {!! $pimpinanStaff->kata_sambutan !!}
                         </p>
                         @endif
-                        <div class="fs-18 text-dark-gray mt-5px mb-10px">
+                        <div class="section-text fs-18 text-dark-gray mt-5px mb-10px">
                             @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
                             <span class="fw-600">{!! $pimpinanStaff->nama !!},</span> {!! $pimpinanStaff->status !!}
                             @endif
@@ -443,7 +443,7 @@
                     <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         <li class="grid-sizer"></li>
                         <!-- start blog list -->
-                        @foreach ($publikasi->where('status', 'Berita') as $item)
+                        @foreach ($publikasi->where('status', 'Berita')->sortByDesc('waktu')->take(3) as $item)
                         <li class="grid-item">
                             <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover" style="min-height: 450px; display: flex; flex-direction: column; justify-content: space-between;">
                                 <div class="blog-image" style="height: 200px; overflow: hidden;">

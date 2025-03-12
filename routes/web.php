@@ -13,6 +13,8 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\ProfilLulusanController;
+use App\Http\Controllers\JadwalPenerimaanController;
+use App\Http\Controllers\PersyaratanMasukController;
 
 
 /*
@@ -110,9 +112,13 @@ Route::get('/jadwal-penerimaan', function () {
     return view('jadwal-penerimaan');
 });
 
+Route::get('/jadwal-penerimaan', [JadwalPenerimaanController::class, 'index']);
+
 Route::get('/persyaratan-masuk', function () {
     return view('persyaratan-masuk');
 });
+
+Route::get('/persyaratan-masuk', [PersyaratanMasukController::class, 'index']);
 
 Route::get('/biaya', function () {
     return view('biaya');
@@ -122,8 +128,8 @@ Route::get('/beasiswa', function () {
     return view('beasiswa');
 });
 
-Route::get('/fasilitas-kampus1', function () {
-    return view('fasilitas-kampus1');
+Route::get('/detail-fasilitas', function () {
+    return view('detail-fasilitas');
 });
 
 Route::get('/detail-dosen', function () {

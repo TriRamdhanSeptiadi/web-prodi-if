@@ -287,9 +287,11 @@
                                 <div class="swiper-slide">
                                     <div class="row align-items-center justify-content-center">
                                         @foreach ($testimoniAlumni as $item)
+                                        @if ($item->foto)
                                         <div class="col-8 col-md-4 col-sm-6 text-center md-mb-30px">
-                                            <img alt="" src="images/Iwu.png">
+                                            <img alt="" src="{{ asset('storage/' . $item->foto) }}">
                                         </div>
+                                        @endif
                                         <div class="col-lg-5 col-md-7 last-paragraph-no-margin text-center text-md-start">
                                             @if ($item->teks)
                                             <span class="mb-5px d-table fs-18 lh-30 fw-500 text-dark-gray">{!! $item->teks !!}</span>
