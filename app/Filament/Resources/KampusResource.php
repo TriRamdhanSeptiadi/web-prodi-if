@@ -84,4 +84,14 @@ class KampusResource extends Resource
             'edit' => Pages\EditKampus::route('/{record}/edit'),
         ];
     }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Daftar Kampus'; 
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Daftar Kampus'; 
+    }
 }

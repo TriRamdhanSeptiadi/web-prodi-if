@@ -19397,4 +19397,8 @@ footer .footer-navbar .nav-item:last-child a {
   .section-text {
       font-size: 1rem;
   }
+
+  .text-justify {
+    text-align: justify;
+  }
 }

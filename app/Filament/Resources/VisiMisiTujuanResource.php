@@ -86,4 +86,14 @@ class VisiMisiTujuanResource extends Resource
             'edit' => Pages\EditVisiMisiTujuan::route('/{record}/edit'),
         ];
     }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Visi, Misi dan Tujuan'; 
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Visi, Misi dan Tujuan'; 
+    }
 }

@@ -299,8 +299,8 @@
                     @if ($tentangInformatika && $tentangInformatika->deskripsi)
                     <div class="col-lg-6 content-container" style="height: 400px;" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
                         <h1 class="section-title">Teknik Informatika.</h1>
-                        <p class="section-text">
-                            {!! $tentangInformatika->deskripsi !!}
+                        <p class="section-text" style="text-align: justify;">
+                            {!! Str::before($tentangInformatika->deskripsi, '</p>') . '</p>' !!}
                         </p>    
                         <a href="/tentang-teknik-informatika" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
                             <span class="bg-base-color"></span>Tentang Informatika

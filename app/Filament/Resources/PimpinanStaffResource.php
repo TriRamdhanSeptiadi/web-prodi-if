@@ -92,4 +92,14 @@ class PimpinanStaffResource extends Resource
             'edit' => Pages\EditPimpinanStaff::route('/{record}/edit'),
         ];
     }
+
+    public static function getPluralLabel(): ?string
+    {
+        return 'Pimpinan dan Staff'; 
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Pimpinan dan Staff'; 
+    }
 }

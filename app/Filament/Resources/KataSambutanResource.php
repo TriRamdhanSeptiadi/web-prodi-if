@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PublikasiResource\Pages;
-use App\Filament\Resources\PublikasiResource\RelationManagers;
-use App\Models\Publikasi;
+use App\Filament\Resources\KataSambutanResource\Pages;
+use App\Filament\Resources\KataSambutanResource\RelationManagers;
+use App\Models\PimpinanStaff;
 use Filament\Forms;
 use Filament\Forms\Get;
 use Filament\Forms\Form;
@@ -14,13 +14,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PublikasiResource extends Resource
+class KataSambutanResource extends Resource
 {
-    protected static ?string $model = Publikasi::class;
+    protected static ?string $model = PimpinanStaff::class;
 
     protected static ?string $navigationGroup = 'Beranda';
 
-    protected static ?string $navigationLabel = 'Berita';
+    protected static ?string $navigationLabel = 'Kata Sambutan';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -28,17 +28,19 @@ class PublikasiResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('judul')->required(),
-                Forms\Components\FileUpload::make('gambar')->required(),
+                Forms\Components\FileUpload::make('foto')->required(),
                 Forms\Components\Select::make('status')
-                ->options([
-                    'Artikel' => 'Artikel',
-                    'Berita' => 'Berita',
-                    'Kegiatan' => 'Kegiatan',
-                ])
-                ->required(),
-                Forms\Components\Textarea::make('deskripsi'),
-                Forms\Components\DatePicker::make('waktu')->required(),
+                    ->options([
+                        'Kepala Program Studi Teknik Informatika' => 'Kepala Program Studi Teknik Informatika',
+                        'Dosen' => 'Dosen',
+                        'Staff' => 'Staff',
+                    ])
+                    ->reactive()
+                    ->required(),
+                Forms\Components\TextInput::make('nama')->required(),
+                Forms\Components\TextInput::make('kata_sambutan')
+                ->visible(fn (Get $get) => $get('status') === 'Kepala Program Studi Teknik Informatika')
+                ->required(fn (Get $get): bool => $get('status') === 'Kepala Program Studi Teknik Informatika'),
             ]);
     }
 
@@ -46,13 +48,10 @@ class PublikasiResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('judul'),
-                Tables\Columns\ImageColumn::make('gambar'),
+                Tables\Columns\ImageColumn::make('foto'),
                 Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('deskripsi'),
-                Tables\Columns\TextColumn::make('waktu')
-                    ->date()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('nama'),
+                Tables\Columns\TextColumn::make('kata_sambutan'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -65,9 +64,9 @@ class PublikasiResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
                 ->options([
-                    'Berita' => 'Berita',
+                    'Kepala Program Studi Teknik Informatika' => 'Kepala Program Studi Teknik Informatika',
                 ])
-                ->default('Berita') // Menyaring hanya data dengan status 'Berita'
+                ->default('Kepala Program Studi Teknik Informatika')
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -91,21 +90,20 @@ class PublikasiResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPublikasis::route('/'),
-            'create' => Pages\CreatePublikasi::route('/create'),
-            'view' => Pages\ViewPublikasi::route('/{record}'),
-            'edit' => Pages\EditPublikasi::route('/{record}/edit'),
+            'index' => Pages\ListKataSambutans::route('/'),
+            'create' => Pages\CreateKataSambutan::route('/create'),
+            'view' => Pages\ViewKataSambutan::route('/{record}'),
+            'edit' => Pages\EditKataSambutan::route('/{record}/edit'),
         ];
     }
 
     public static function getPluralLabel(): ?string
     {
-        return 'Berita'; 
+        return 'Kata Sambutan'; 
     }
 
     public static function getNavigationLabel(): string
     {
-        return 'Berita'; 
+        return 'Kata Sambutan'; 
     }
-
 }

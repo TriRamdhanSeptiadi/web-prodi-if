@@ -38,7 +38,7 @@ class TestimoniAlumniResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('foto'),
+                Tables\Columns\ImageColumn::make('foto'),
                 Tables\Columns\TextColumn::make('teks'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -55,6 +55,7 @@ class TestimoniAlumniResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
