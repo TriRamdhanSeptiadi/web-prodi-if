@@ -29,8 +29,10 @@ class KampusResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('nama'),
                 Forms\Components\FileUpload::make('gambar'),
-                Forms\Components\TextInput::make('deskripsi'),
-                Forms\Components\TextInput::make('alamat'),
+                Forms\Components\RichEditor::make('deskripsi')
+                    ->columnSpanFull(),
+                Forms\Components\RichEditor::make('alamat')
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('nomor')
             ]);
     }
@@ -41,8 +43,10 @@ class KampusResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama'),
                 Tables\Columns\ImageColumn::make('gambar'),
-                Tables\Columns\TextColumn::make('deskripsi'),
-                Tables\Columns\TextColumn::make('alamat'),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('alamat')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('nomor'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

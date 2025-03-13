@@ -411,7 +411,7 @@
                     <div class="col-lg-6 content-container" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
                         @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
                         <p class="section-text">
-                            {!! $pimpinanStaff->kata_sambutan !!}
+                            {!! Str::before($pimpinanStaff->kata_sambutan, '</p>') . '</p>' !!}
                         </p>
                         @endif
                         <div class="section-text fs-18 text-dark-gray mt-5px mb-10px">
@@ -419,7 +419,7 @@
                             <span class="fw-600">{!! $pimpinanStaff->nama !!},</span> {!! $pimpinanStaff->status !!}
                             @endif
                         </div>
-                        <a href="/detail-kata-sambutan" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
+                        <a href="{{ route('pimpinanStaff.show', $pimpinanStaff->id) }}" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
                             <span class="bg-base-color"></span>Lihat Selengkapnya
                         </a>
                     </div>
@@ -537,10 +537,10 @@
                 </div> 
                 <div class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0">
                     <!-- start copyright -->
-                    <div class="col-xl-5 last-paragraph-no-margin text-center text-xl-end">
-                        <p class="fs-16"><p class="fs-16">&copy; 2025 International Women University</p>
+                    <div class="col-xl-12 d-flex justify-content-center align-items-center">
+                        <p class="fs-16">&copy; 2025 International Women University</p>
                     </div>
-                    <!-- start copyright -->
+                    <!-- end copyright -->
                 </div>
             </div> 
         </footer>

@@ -15,6 +15,7 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\ProfilLulusanController;
 use App\Http\Controllers\JadwalPenerimaanController;
 use App\Http\Controllers\PersyaratanMasukController;
+use App\Http\Controllers\DetailKataSambutanController;
 
 
 /*
@@ -139,6 +140,8 @@ Route::get('/detail-dosen', function () {
 Route::get('/detail-kata-sambutan', function () {
     return view('detail-kata-sambutan');
 });
+
+Route::get('/detail-kata-sambutan/{id}', [DosenStaffController::class, 'show'])->name('pimpinanStaff.show');
 
 Route::get('/detail-artikel', function () {
     return view('detail-artikel');

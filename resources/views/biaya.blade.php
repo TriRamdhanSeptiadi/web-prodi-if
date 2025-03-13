@@ -327,10 +327,10 @@
                 </div> 
                 <div class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0">
                     <!-- start copyright -->
-                    <div class="col-xl-5 last-paragraph-no-margin text-center text-xl-end">
-                        <p class="fs-16"><p class="fs-16">&copy; 2025 International Women University</p>
+                    <div class="col-xl-12 d-flex justify-content-center align-items-center">
+                        <p class="fs-16">&copy; 2025 International Women University</p>
                     </div>
-                    <!-- start copyright -->
+                    <!-- end copyright -->
                 </div>
             </div> 
         </footer>

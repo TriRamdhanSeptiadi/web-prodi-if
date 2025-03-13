@@ -27,7 +27,9 @@ class JadwalPenerimaanResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('teks'),
+                Forms\Components\RichEditor::make('teks')
+                    ->columnSpanFull()
+                    ->helperText('Teks singkat jadwal penerimaan (opsional). Kosongkan jika tidak ada informasi tambahan.'),
                 Forms\Components\DatePicker::make('pendaftaran_sampai_dengan')->required(),
                 Forms\Components\DatePicker::make('tes')->required(),
                 Forms\Components\DatePicker::make('pengumuman_hasil_tes')->required(),
@@ -40,7 +42,8 @@ class JadwalPenerimaanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('teks'),
+                Tables\Columns\TextColumn::make('teks')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('pendaftaran_sampai_dengan')
                     ->date()
                     ->sortable(),

@@ -27,9 +27,13 @@ class KarirResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('teks'),
+                Forms\Components\RichEditor::make('teks')
+                    ->columnSpanFull()
+                    ->nullable()
+                    ->helperText('Teks singkat peluang karir (opsional). Kosongkan jika tidak ada informasi tambahan.'),
                 Forms\Components\TextInput::make('sektor'),
-                Forms\Components\TextInput::make('deskripsi'),
+                Forms\Components\RichEditor::make('deskripsi')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -37,9 +41,11 @@ class KarirResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('teks'),
+                Tables\Columns\TextColumn::make('teks')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('sektor'),
-                Tables\Columns\TextColumn::make('deskripsi'),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

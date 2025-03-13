@@ -27,9 +27,12 @@ class ProfilLulusanResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('teks'),
+                Forms\Components\RichEditor::make('teks')
+                    ->columnSpanFull()
+                    ->helperText('Teks singkat profil lulusan (opsional). Kosongkan jika tidak ada informasi tambahan.'),
                 Forms\Components\TextInput::make('profil_lulusan'),
-                Forms\Components\TextInput::make('deskripsi'),
+                Forms\Components\RichEditor::make('deskripsi')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -37,9 +40,11 @@ class ProfilLulusanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('teks'),
+                Tables\Columns\TextColumn::make('teks')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('profil_lulusan'),
-                Tables\Columns\TextColumn::make('deskripsi'),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

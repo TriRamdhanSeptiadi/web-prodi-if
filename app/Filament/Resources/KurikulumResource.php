@@ -27,7 +27,9 @@ class KurikulumResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('teks'),
+                Forms\Components\RichEditor::make('teks')
+                    ->columnSpanFull()
+                    ->helperText('Teks singkat kurikulum (opsional). Kosongkan jika tidak ada informasi tambahan.'),
                 Forms\Components\FileUpload::make('foto')->required()
             ]);
     }
@@ -36,7 +38,8 @@ class KurikulumResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('teks'),
+                Tables\Columns\TextColumn::make('teks')
+                    ->limit(50),
                 Tables\Columns\ImageColumn::make('foto'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

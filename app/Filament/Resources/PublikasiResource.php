@@ -37,8 +37,9 @@ class PublikasiResource extends Resource
                     'Kegiatan' => 'Kegiatan',
                 ])
                 ->required(),
-                Forms\Components\Textarea::make('deskripsi'),
                 Forms\Components\DatePicker::make('waktu')->required(),
+                Forms\Components\RichEditor::make('deskripsi')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -46,10 +47,12 @@ class PublikasiResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('judul'),
+                Tables\Columns\TextColumn::make('judul')
+                    ->limit(50),
                 Tables\Columns\ImageColumn::make('gambar'),
                 Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('deskripsi'),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('waktu')
                     ->date()
                     ->sortable(),

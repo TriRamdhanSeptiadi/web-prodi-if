@@ -43,9 +43,12 @@ class VisiMisiTujuanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('visi'),
-                Tables\Columns\TextColumn::make('misi'),
-                Tables\Columns\TextColumn::make('tujuan'),
+                Tables\Columns\TextColumn::make('visi')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('misi')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('tujuan')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

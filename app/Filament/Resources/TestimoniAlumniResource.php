@@ -29,7 +29,8 @@ class TestimoniAlumniResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('nama'),
                 Forms\Components\FileUpload::make('foto'),
-                Forms\Components\TextInput::make('teks'),
+                Forms\Components\RichEditor::make('teks')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -39,7 +40,8 @@ class TestimoniAlumniResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama'),
                 Tables\Columns\ImageColumn::make('foto'),
-                Tables\Columns\TextColumn::make('teks'),
+                Tables\Columns\TextColumn::make('teks')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

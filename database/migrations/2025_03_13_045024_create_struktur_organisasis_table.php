@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('struktur_organisasis', function (Blueprint $table) {
             $table->id();
-            $table->text('teks');
+            $table->text('teks')->nullable();
             $table->text('foto');
             $table->timestamps();
         });

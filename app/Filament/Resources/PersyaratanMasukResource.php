@@ -27,7 +27,9 @@ class PersyaratanMasukResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('persyaratan'),
+                Forms\Components\TextInput::make('persyaratan')
+                    ->columnSpanFull()
+                    ->helperText('Teks singkat persyaratan masuk (opsional). Kosongkan jika tidak ada informasi tambahan.'),
             ]);
     }
 
@@ -35,7 +37,8 @@ class PersyaratanMasukResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('persyaratan'),
+                Tables\Columns\TextColumn::make('persyaratan')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

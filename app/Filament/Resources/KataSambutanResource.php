@@ -38,9 +38,10 @@ class KataSambutanResource extends Resource
                     ->reactive()
                     ->required(),
                 Forms\Components\TextInput::make('nama')->required(),
-                Forms\Components\TextInput::make('kata_sambutan')
+                Forms\Components\RichEditor::make('kata_sambutan')
                 ->visible(fn (Get $get) => $get('status') === 'Kepala Program Studi Teknik Informatika')
-                ->required(fn (Get $get): bool => $get('status') === 'Kepala Program Studi Teknik Informatika'),
+                ->required(fn (Get $get): bool => $get('status') === 'Kepala Program Studi Teknik Informatika')
+                ->columnSpanFull(),
             ]);
     }
 
@@ -51,7 +52,8 @@ class KataSambutanResource extends Resource
                 Tables\Columns\ImageColumn::make('foto'),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('kata_sambutan'),
+                Tables\Columns\TextColumn::make('kata_sambutan')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

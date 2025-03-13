@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <title>Teknik Informatika - Dosen</title>
+<head>
+        <title>Teknik Informatika - Detail Kata Sambutan</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="ThemeZaa">
@@ -218,34 +218,30 @@
             </nav>
             <!-- end navigation -->
         </header>
-        <!-- end header --> 
-        <!-- Start Section -->
-        <section id="profil" class="mb-0 pb-0" style="margin-top: 50px;">
-            <div class="container text-center">
-                <div class="card shadow-lg border-0 rounded-3 overflow-hidden"
-                    data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 600, "delay":100, "easing": "easeOutQuad" }'>
-                    <div class="card-body p-4">
-                        <!-- Judul -->
-                        <h5 class="text-dark-gray fw-700"
-                            data-anime='{ "opacity": [0,1], "translateY": [20, 0], "duration": 600, "delay":200, "easing": "easeOutQuad" }'>
-                            Detail Kata Sambutan
-                        </h5>
-
-                        <!-- Logo Universitas -->
-                        <img src="images/Iwu.png" alt="Logo Universitas" class="mb-4" style="max-width: 150px;"
-                            data-anime='{ "opacity": [0,1], "scale": [0.8, 1], "duration": 600, "delay":300, "easing": "easeOutQuad" }'>
-
-                        <!-- Paragraf -->
-                        <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;"
-                        data-anime='{ "opacity": [0,1], "translateY": [20, 0], "duration": 600, "delay":400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the 
-                            industry's standard dummy text ever since the 1500s, when an unknown.
-                        </p>
+        <!-- end header -->
+        <!-- start section -->
+        <div class="container">
+            <h1>Detail Kata Sambutan</h1>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    @if ($pimpinanStaff && $pimpinanStaff->foto)
+                    <div class="image-container">
+                        <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="{{ $pimpinanStaff->nama }}">
+                    </div>
+                    @endif
+                </div>
+                <div class="col-lg-6">
+                    @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
+                    <p class="section-text">{!! $pimpinanStaff->kata_sambutan !!}</p>
+                    @endif
+                    <div class="section-text fs-18 text-dark-gray mt-5px mb-10px">
+                        <span class="fw-600">{{ $pimpinanStaff->nama }}</span>, {{ $pimpinanStaff->status }}
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- End Section -->
+        </div>
+        <!-- end section -->
         <!-- start footer -->
         <footer class="bg-gradient-aztec-green position-relative">
             <div class="position-absolute left-minus-100px top-25px">
@@ -294,10 +290,10 @@
                 </div> 
                 <div class="row align-items-center footer-bottom border-top border-color-transparent-white-light pt-30px g-0">
                     <!-- start copyright -->
-                    <div class="col-xl-5 last-paragraph-no-margin text-center text-xl-end">
-                        <p class="fs-16"><p class="fs-16">&copy; 2025 International Women University</p>
+                    <div class="col-xl-12 d-flex justify-content-center align-items-center">
+                        <p class="fs-16">&copy; 2025 International Women University</p>
                     </div>
-                    <!-- start copyright -->
+                    <!-- end copyright -->
                 </div>
             </div> 
         </footer>

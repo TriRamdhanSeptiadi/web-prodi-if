@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('karirs', function (Blueprint $table) {
             $table->id();
-            $table->text('teks');
+            $table->text('teks')->nullable();
             $table->text('sektor');
             $table->text('deskripsi');
             $table->timestamps();

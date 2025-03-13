@@ -19401,4 +19401,9 @@ footer .footer-navbar .nav-item:last-child a {
   .text-justify {
     text-align: justify;
   }
+
+  .custom-helper-text {
+    color: #FF6347; /* Ganti dengan warna yang diinginkan */
+    font-style: italic;
+  }
 }
