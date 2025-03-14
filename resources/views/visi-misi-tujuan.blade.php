@@ -251,10 +251,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php $counter = 1; @endphp
+                                            @foreach ($visiMisiTujuan as $item)
                                             <tr> 
-                                                <td class="fs-15">1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum dolor sit amet...</td>
+                                                <td class="fs-15">{{ $counter++ }}</td>
+                                                @if ($item->visi)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->visi !!}</td>
+                                                @endif
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -272,14 +277,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php $counter = 1; @endphp
+                                            @foreach ($visiMisiTujuan as $item)
                                             <tr>
-                                                <td class="fs-15">1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum dolor sit amet...</td>
+                                                <td class="fs-15">{{ $counter++ }}</td>
+                                                @if ($item->misi)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->misi !!}</td>
+                                                @endif
                                             </tr>
-                                            <tr>
-                                                <td class="fs-15">2</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum dolor sit amet...</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -297,14 +303,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php $counter = 1; @endphp
+                                            @foreach ($visiMisiTujuan as $item)
                                             <tr>
-                                                <td class="fs-15">1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum dolor sit amet...</td>
+                                                <td class="fs-15">{{ $counter++ }}</td>
+                                                @if ($item->tujuan)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->tujuan !!}</td>
+                                                @endif
                                             </tr>
-                                            <tr>
-                                                <td class="fs-15">2</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum dolor sit amet...</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

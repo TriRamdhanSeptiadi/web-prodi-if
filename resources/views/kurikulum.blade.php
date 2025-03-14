@@ -313,26 +313,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester1 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11101</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Indonesia</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11102</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Korea I</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11103</td>
-                                                <td style="text-align: center;" class="fs-15">Pendidikan Pancasila</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 22    
+                                    Total SKS yang ditawarkan: {{ $total_sks }}
                                 </p>
                             </div>
 
@@ -348,26 +350,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester2 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11101</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Indonesia</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11102</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Korea I</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11103</td>
-                                                <td style="text-align: center;" class="fs-15">Pendidikan Pancasila</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 22    
+                                    Total SKS yang ditawarkan: {{ $total_sks }}   
                                 </p>
                             </div>
 
@@ -383,26 +387,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester3 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11101</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Indonesia</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11102</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Korea I</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11103</td>
-                                                <td style="text-align: center;" class="fs-15">Pendidikan Pancasila</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 22    
+                                    Total SKS yang ditawarkan: {{ $total_sks }}   
                                 </p>
                             </div>
 
@@ -418,25 +424,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester4 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11101</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Indonesia</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11102</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Korea I</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11103</td>
-                                                <td style="text-align: center;" class="fs-15">Pendidikan Pancasila</td>
-                                                <td class="fs-15">2</td>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 22    
+                                    Total SKS yang ditawarkan: {{ $total_sks }}  
                                 </p>
                             </div>
 
@@ -452,26 +461,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester5 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11101</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Indonesia</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11102</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Korea I</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11103</td>
-                                                <td style="text-align: center;" class="fs-15">Pendidikan Pancasila</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 22    
+                                    Total SKS yang ditawarkan: {{ $total_sks }}  
                                 </p>
                             </div>
 
@@ -487,26 +498,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester6 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11101</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Indonesia</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11102</td>
-                                                <td style="text-align: center;" class="fs-15">Bahasa Korea I</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11103</td>
-                                                <td style="text-align: center;" class="fs-15">Pendidikan Pancasila</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 22    
+                                    Total SKS yang ditawarkan: {{ $total_sks }} 
                                 </p>
                             </div>
 
@@ -522,26 +535,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester7 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11723</td>
-                                                <td style="text-align: center;" class="fs-15">Praktik Kerja Lapangan</td>
-                                                <td class="fs-15">2</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI11724</td>
-                                                <td style="text-align: center;" class="fs-15">Seminar Proposal</td>
-                                                <td class="fs-15">2</td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="fs-15">BI13733</td>
-                                                <td style="text-align: center;" class="fs-15">Teknologi Bioproses (MBKM)</td>
-                                                <td class="fs-15">3</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 7
+                                    Total SKS yang ditawarkan: {{ $total_sks }}
                                 </p>
                             </div>
 
@@ -557,16 +572,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $total_sks = 0; 
+                                            @endphp
+                                            @foreach ($semester8 as $item)
                                             <tr> 
-                                                <td class="fs-15">BI11825</td>
-                                                <td style="text-align: center;" class="fs-15">Skripsi</td>
-                                                <td class="fs-15">4</td>
+                                                @if ($item->kode_mata_kuliah)
+                                                <td class="fs-15">{!! $item->kode_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->nama_mata_kuliah)
+                                                <td style="text-align: center;" class="fs-15">{!! $item->nama_mata_kuliah !!}</td>
+                                                @endif
+                                                @if ($item->sks)
+                                                <td class="fs-15">{!! $item->sks !!}</td>
+                                                @php $total_sks += $item->sks; @endphp
+                                                @endif
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                                    Total SKS yang ditawarkan: 4   
+                                    Total SKS yang ditawarkan: {{ $total_sks }} 
                                 </p>
                             </div>
                         </div>    
@@ -639,10 +666,12 @@
                         </h5>
 
                         <!-- Paragraph with fade-in and slide-up animation -->
+                        @if ($capaianPembelajaran->first() && $capaianPembelajaran->first()->teks)
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;"
                             data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+                            {!! $capaianPembelajaran->first()->teks !!} 
                         </p>
+                        @endif
 
                         <!-- Table with fade-in animation -->
                         <div class="table-responsive"
@@ -655,14 +684,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php 
+                                        $counter = 2; 
+                                        $subCounter = 1; 
+                                    @endphp
+                                    @foreach ($capaianPembelajaran as $item)
                                     <tr>
-                                        <td class="fs-15">2.1</td>
-                                        <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                        <td class="fs-15">{{ $counter }}.{{ $subCounter++ }}</td>
+                                        @if ($item->deskripsi)
+                                        <td style="text-align: left;" class="fs-15">{!! $item->deskripsi !!}</td>
+                                        @endif
                                     </tr>
-                                    <tr>
-                                        <td class="fs-15">2.2</td>
-                                        <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -704,14 +737,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $counter = 3; 
+                                                $subCounter = 1; 
+                                            @endphp
+                                            @foreach ($sikapCPL as $item)
                                             <tr>
-                                                <td class="fs-15">3.1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                                <td class="fs-15">{{ $counter }}.{{ $subCounter++ }}</td>
+                                                @if ($item->indikator)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->indikator !!}</td>
+                                                @endif
                                             </tr>
-                                            <tr>
-                                                <td class="fs-15">3.2</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -728,14 +765,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                             @php 
+                                                $counter = 4; 
+                                                $subCounter = 1; 
+                                            @endphp
+                                            @foreach ($pengetahuanCPL as $item)
                                             <tr>
-                                                <td class="fs-15">4.1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                                <td class="fs-15">{{ $counter }}.{{ $subCounter++ }}</td>
+                                                @if ($item->indikator)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->indikator !!}</td>
+                                                @endif
                                             </tr>
-                                            <tr>
-                                                <td class="fs-15">4.2</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -752,14 +793,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $counter = 5; 
+                                                $subCounter = 1; 
+                                            @endphp
+                                            @foreach ($keterampilanUmumCPL as $item)
                                             <tr>
-                                                <td class="fs-15">5.1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                                <td class="fs-15">{{ $counter }}.{{ $subCounter++ }}</td>
+                                                @if ($item->indikator)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->indikator !!}</td>
+                                                @endif
                                             </tr>
-                                            <tr>
-                                                <td class="fs-15">5.2</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -776,22 +821,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php 
+                                                $counter = 6; 
+                                                $subCounter = 1; 
+                                            @endphp
+                                            @foreach ($keterampilanKhususCPL as $item)
                                             <tr>
-                                                <td class="fs-15">6.1</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                                <td class="fs-15">{{ $counter }}.{{ $subCounter++ }}</td>
+                                                @if ($item->indikator)
+                                                <td style="text-align: justify;" class="fs-15">{!! $item->indikator !!}</td>
+                                                @endif
                                             </tr>
-                                            <tr>
-                                                <td class="fs-15">6.2</td>
-                                                <td style="text-align: justify;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+                            @if ($kompetensi->first() && $kompetensi->first()->teks)
                             <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;"
                                 data-anime='{ "translateY": [20, 0], "opacity": [0,1], "duration": 800, "delay": 200, "easing": "easeOutQuad" }'></p>
-                                Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.    
+                                {!! $kompetensi->first()->teks !!}   
                             </p>
+                            @endif
                             <div class="table-responsive">
                                 <table class="table table-bordered mt-1">
                                     <thead>
@@ -801,14 +852,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php 
+                                            $counter = 1;
+                                        @endphp
+                                        @foreach ($kompetensi as $item)
                                         <tr> 
-                                            <td class="fs-15">1</td>
-                                            <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
+                                            <td class="fs-15">{{ $counter++ }}</td>
+                                            @if ($item->deskripsi)
+                                            <td style="text-align: left;" class="fs-15">{!! $item->deskripsi !!}</td>
+                                            @endif
                                         </tr>
-                                        <tr> 
-                                            <td class="fs-15">2</td>
-                                            <td style="text-align: left;" class="fs-15">Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                         </div>

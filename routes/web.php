@@ -16,6 +16,7 @@ use App\Http\Controllers\ProfilLulusanController;
 use App\Http\Controllers\JadwalPenerimaanController;
 use App\Http\Controllers\PersyaratanMasukController;
 use App\Http\Controllers\DetailKataSambutanController;
+use App\Http\Controllers\VisiMisiTujuanController;
 
 
 /*
@@ -44,6 +45,8 @@ Route::get('/tentang-teknik-informatika', [TentangTeknikInformatikaController::c
 Route::get('/visi-misi-tujuan', function () {
     return view('visi-misi-tujuan');
 });
+
+Route::get('/visi-misi-tujuan', [VisiMisiTujuanController::class, 'index']);
 
 Route::get('/struktur-organisasi', function () {
     return view('struktur-organisasi');
