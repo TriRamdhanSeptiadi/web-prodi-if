@@ -21,7 +21,7 @@ class SikapCPLResource extends Resource
 
     protected static ?string $navigationLabel = 'Sikap (CPL)';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function form(Form $form): Form
     {

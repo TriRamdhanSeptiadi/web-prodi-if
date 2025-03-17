@@ -235,16 +235,22 @@
                                         <div class="card bg-transparent border-0 h-100">
                                             @if ($item->foto)
                                             <div class="blog-image position-relative overflow-hidden border-radius-4px">
-                                                <a href="/detail-dosen"><img src="{{ asset('storage/' . $item->foto) }}" alt=""></a>
+                                                <a href="{{ route('detail-dosen', ['id' => $item->id]) }}"><img src="{{ asset('storage/' . $item->foto) }}" alt=""></a>
                                             </div>
                                             @endif
                                             <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
-                                                @if ($item->nama)
-                                                <span class="fs-14 text-uppercase d-block mb-5px fw-500"><a href="/detail-dosen" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">{!! $item->nama !!}</a></span>
-                                                @endif
-                                                @if ($item->status)
-                                                <a href="/detail-dosen" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">{!! $item->status !!}</a>
-                                                @endif
+                                            @if ($item->nama)
+                                        <!-- Link nama ke halaman detail berdasarkan ID -->
+                                            <a href="{{ route('detail-dosen', ['id' => $item->id]) }}" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">
+                                                {!! $item->nama !!}
+                                            </a>
+                                        @endif
+                                        @if ($item->status)
+                                        <!-- Link status ke halaman detail berdasarkan ID -->
+                                        <a href="{{ route('detail-dosen', ['id' => $item->id]) }}" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">
+                                            {!! $item->status !!}
+                                        </a>
+                                        @endif
                                             </div>
                                         </div>
                                     </li>

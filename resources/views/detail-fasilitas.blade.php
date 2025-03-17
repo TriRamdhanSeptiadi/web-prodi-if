@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
+<head>
         <title>Teknik Informatika - Detail Fasilitas</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,18 +25,18 @@
     <body data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="">
         <!-- start header --> 
         <header class="header-with-topbar">
-            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('images/demo-hosting-header-bg.jpg'); padding-top: 10px; padding-bottom: 10px;">
+            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('{{asset('images/demo-hosting-header-bg.jpg')}}'); padding-top: 10px; padding-bottom: 10px;">
                 <div class="container-fluid">
                     <div class="row align-items-center m-0">
                         <div class="col-6 d-flex align-items-center">
                             <a href="#" class="text-white me-3">
-                                <img src="images/flag-id.png" alt="IDN" width="20"> IDN
+                                <img src="{{asset('images/flag-id.png')}}" alt="IDN" width="20"> IDN
                             </a>
                             <a href="#" class="text-white me-3">
-                                <img src="images/flag-uk.png" alt="ENG" width="20"> ENG
+                                <img src="{{asset('images/flag-uk.png')}}" alt="ENG" width="20"> ENG
                             </a>
                             <a href="#" class="text-white">
-                                <img src="images/flag-kr.png" alt="KR" width="20"> KR
+                                <img src="{{asset('images/flag-kr.png')}}" alt="KR" width="20"> KR
                             </a>
                         </div>
                         <div class="col-6 text-end">
@@ -57,7 +57,7 @@
             <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
                 <div class="container">
                     <a class="navbar-brand" href="international-women-university-beranda.html">
-                        <img src="images/Iwu.png" data-at2x="images/Iwu.png" alt="Logo" class="default-logo">
+                        <img src="{{asset('images/Iwu.png')}}" data-at2x="{{asset('images/Iwu.png')}}" alt="Logo" class="default-logo">
                         <span class="brand-text text-black">Teknik Informatika</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
@@ -218,7 +218,7 @@
             </nav>
             <!-- end navigation -->
         </header>
-        <!-- end header --> 
+        <!-- end header -->
         <!-- Start Section -->
         <section id="profil" class="mb-0 pb-0" style="margin-top: 50px;">
             <div class="container text-center">
@@ -240,9 +240,6 @@
                                 <p>Deskripsi Jalan<br>Deskripsi Jalan</p>
                                 <span class="d-block"><span class="text-dark-gray fw-600">Deskripsi:</span><a href="tel:1234567890"> Keterangan</a></span>
                                 <span class="d-block mb-30px"><span class="text-dark-gray fw-600">Deskripsi:</span> <a href="mailto:info@yourdomain.com">Keterangan</a></span>
-                                <div class="col-md-7 text-center text-md-end">
-                                    <a href="#" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700"><span class="bg-base-color"></span>Lihat Selengkapnya</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -314,8 +311,8 @@
         </div>
         <!-- end scroll progress -->
         <!-- javascript libraries -->
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script> 
+        <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/vendors.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
     </body>
 </html>

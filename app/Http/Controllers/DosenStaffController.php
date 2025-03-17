@@ -14,9 +14,15 @@ class DosenStaffController extends Controller
         return view('dosen', compact('pimpinanStaff'));
     }
 
-    public function show($id)
+    public function showDetail($id)
     {
         $pimpinanStaff = PimpinanStaff::findOrFail($id);
         return view('detail-kata-sambutan', compact('pimpinanStaff'));
+    }
+
+    public function show($id)
+    {
+        $pimpinanStaff = PimpinanStaff::findOrFail($id);
+        return view('detail-dosen', compact('pimpinanStaff'));
     }
 }

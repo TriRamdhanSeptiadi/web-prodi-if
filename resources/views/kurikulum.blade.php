@@ -268,7 +268,7 @@
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15"
                             style="text-align: justify; margin-top: 30px;"
                             data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+                            Struktur kurikulum Program Studi Teknik Informatika Universitas Wanita Internasional dirancang untuk membekali mahasiswa dengan pengetahuan dan keterampilan yang dibutuhkan dalam bidang teknologi informasi. Kurikulum ini mengintegrasikan pembelajaran teori dan praktik secara seimbang, dengan perhatian khusus pada pengembangan kompetensi dasar yang relevan dengan kebutuhan industri digital dan masyarakat modern.
                         </p>
 
                         <!-- Nav Tabs with fade-in and slide-up animation -->

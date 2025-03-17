@@ -251,7 +251,7 @@
                                 <span class="d-block mb-30px"><span class="text-dark-gray fw-600">Nomor:</span> <a>{!! $item->nomor !!}</a></span>
                                 @endif
                                 <div class="col-md-7 text-center text-md-end">
-                                    <a href="/detail-fasilitas" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700"><span class="bg-base-color"></span>Lihat Selengkapnya</a>
+                                    <a href="{{ route('detail-fasilitas', ['id' => $item->id]) }}" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700"><span class="bg-base-color"></span>Lihat Selengkapnya</a>
                                 </div>
                             </div>
                         </div>

@@ -60,6 +60,8 @@ Route::get('/fasilitas', function () {
 
 Route::get('/fasilitas', [KampusController::class, 'index']);
 
+Route::get('/detail-fasilitas/{id}', [KampusController::class, 'show'])->name('detail-fasilitas');
+
 Route::get('/dosen', function () {
     return view('dosen');
 });
@@ -140,20 +142,28 @@ Route::get('/detail-dosen', function () {
     return view('detail-dosen');
 });
 
+Route::get('/detail-dosen/{id}', [DosenStaffController::class, 'show'])->name('detail-dosen');
+
 Route::get('/detail-kata-sambutan', function () {
     return view('detail-kata-sambutan');
 });
 
-Route::get('/detail-kata-sambutan/{id}', [DosenStaffController::class, 'show'])->name('pimpinanStaff.show');
+Route::get('/detail-kata-sambutan/{id}', [DosenStaffController::class, 'showDetail'])->name('pimpinanStaff.showDetail');
 
 Route::get('/detail-artikel', function () {
     return view('detail-artikel');
 });
 
+Route::get('/detail-artikel/{id}', [ArtikelController::class, 'show'])->name('detail-artikel');
+
 Route::get('/detail-berita', function () {
     return view('detail-berita');
 });
 
+Route::get('/detail-berita/{id}', [BeritaController::class, 'show'])->name('detail-berita');
+
 Route::get('/detail-kegiatan', function () {
     return view('detail-kegiatan');
 });
+
+Route::get('/detail-kegiatan/{id}', [KegiatanController::class, 'show'])->name('detail-kegiatan');

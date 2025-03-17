@@ -21,7 +21,7 @@ class TentangTeknikInformatika1Resource extends Resource
 
     protected static ?string $navigationLabel = 'Tentang Teknik Informatika';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 
     public static function form(Form $form): Form
     {

@@ -13,4 +13,11 @@ class KampusController extends Controller
         
         return view('fasilitas', compact('kampus'));
     }
+
+    public function show($id)
+    {
+        $kampus = Kampus::findOrFail($id);
+
+        return view('detail-fasilitas', compact('kampus'));
+    }
 }

@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
+<head>
         <title>Teknik Informatika - Detail Artikel</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,18 +25,18 @@
     <body data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="">
         <!-- start header --> 
         <header class="header-with-topbar">
-            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('images/demo-hosting-header-bg.jpg'); padding-top: 10px; padding-bottom: 10px;">
+            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('{{asset('images/demo-hosting-header-bg.jpg')}}'); padding-top: 10px; padding-bottom: 10px;">
                 <div class="container-fluid">
                     <div class="row align-items-center m-0">
                         <div class="col-6 d-flex align-items-center">
                             <a href="#" class="text-white me-3">
-                                <img src="images/flag-id.png" alt="IDN" width="20"> IDN
+                                <img src="{{asset('images/flag-id.png')}}" alt="IDN" width="20"> IDN
                             </a>
                             <a href="#" class="text-white me-3">
-                                <img src="images/flag-uk.png" alt="ENG" width="20"> ENG
+                                <img src="{{asset('images/flag-uk.png')}}" alt="ENG" width="20"> ENG
                             </a>
                             <a href="#" class="text-white">
-                                <img src="images/flag-kr.png" alt="KR" width="20"> KR
+                                <img src="{{asset('images/flag-kr.png')}}" alt="KR" width="20"> KR
                             </a>
                         </div>
                         <div class="col-6 text-end">
@@ -57,7 +57,7 @@
             <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
                 <div class="container">
                     <a class="navbar-brand" href="international-women-university-beranda.html">
-                        <img src="images/Iwu.png" data-at2x="images/Iwu.png" alt="Logo" class="default-logo">
+                        <img src="{{asset('images/Iwu.png')}}" data-at2x="{{asset('images/Iwu.png')}}" alt="Logo" class="default-logo">
                         <span class="brand-text text-black">Teknik Informatika</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
@@ -218,34 +218,50 @@
             </nav>
             <!-- end navigation -->
         </header>
-        <!-- end header --> 
-        <!-- Start Section -->
-        <section id="profil" class="mb-0 pb-0" style="margin-top: 50px;">
-            <div class="container text-center">
-                <div class="card shadow-lg border-0 rounded-3 overflow-hidden"
-                    data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 600, "delay":100, "easing": "easeOutQuad" }'>
-                    <div class="card-body p-4">
-                        <!-- Judul -->
-                        <h5 class="text-dark-gray fw-700"
-                            data-anime='{ "opacity": [0,1], "translateY": [20, 0], "duration": 600, "delay":200, "easing": "easeOutQuad" }'>
-                            Detail Artikel
-                        </h5>
-
-                        <!-- Logo Universitas -->
-                        <img src="images/Iwu.png" alt="Logo Universitas" class="mb-4" style="max-width: 150px;"
-                            data-anime='{ "opacity": [0,1], "scale": [0.8, 1], "duration": 600, "delay":300, "easing": "easeOutQuad" }'>
-
-                        <!-- Paragraf -->
-                        <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;"
-                        data-anime='{ "opacity": [0,1], "translateY": [20, 0], "duration": 600, "delay":400, "easing": "easeOutQuad" }'>
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the 
-                            industry's standard dummy text ever since the 1500s, when an unknown.
-                        </p>
+        <!-- end header -->
+        <!-- start page title --> 
+        <section class="p-0">
+            <div class="container">
+                <div class="row align-items-center justify-content-center extra-very-small-screen">
+                    <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                        <h1 class="fw-700 text-dark-gray ls-minus-2px" style="margin-top: 100px;">Detail Artikel</h1>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Section -->
+        <!-- end page title -->
+        <!-- start section -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 d-flex flex-column align-items-center text-center">
+                    <!-- Foto -->
+                    @if ($publikasi && $publikasi->gambar)
+                    <div class="image-container mb-3">
+                        <img src="{{ asset('storage/' . $publikasi->gambar) }}" alt="{{ $publikasi->gambar }}" class="img-fluid">
+                    </div>
+                    @endif
+
+                    <!-- Nama dan Status -->
+                    <div class="section-text fs-18 text-dark-gray mt-3 mb-3">
+                        <span class="fw-600">{{ \Carbon\Carbon::parse($publikasi->waktu)->translatedFormat('d F Y') }}</span>
+                    </div>
+
+                    <!-- Kata Sambutan (Full-width) -->
+                    <div class="col-12">
+                        @if ($publikasi && $publikasi->judul)
+                        <p class="section-text text-left">{!! $publikasi->judul !!}</p>
+                        @endif
+                    </div>
+                </div>
+                    <!-- Kata Sambutan (Full-width) -->
+                    <div class="col-12">
+                        @if ($publikasi && $publikasi->deskripsi)
+                        <p class="section-text text-left">{!! $publikasi->deskripsi !!}</p>
+                        @endif
+                    </div>
+            </div>
+        </div>
+        <!-- end section -->
         <!-- start footer -->
         <footer class="bg-gradient-aztec-green position-relative">
             <div class="position-absolute left-minus-100px top-25px">
@@ -310,8 +326,8 @@
         </div>
         <!-- end scroll progress -->
         <!-- javascript libraries -->
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script> 
+        <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/vendors.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
     </body>
 </html>

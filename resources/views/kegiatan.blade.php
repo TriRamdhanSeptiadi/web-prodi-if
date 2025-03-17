@@ -234,25 +234,22 @@
                     <ul class="blog-grid blog-wrapper grid-loading grid grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         <li class="grid-sizer"></li>
                         <!-- start blog list -->
-                        @foreach ($publikasi->where('status', 'Kegiatan')->sortByDesc('waktu') as $item)
+                        @foreach ($publikasi->where('status', 'Kegiatan')->sortByDesc('waktu')->take(3) as $item)
                         <li class="grid-item">
                             <div class="card border-0 border-radius-5px box-shadow-quadruple-large box-shadow-quadruple-large-hover" style="min-height: 450px; display: flex; flex-direction: column; justify-content: space-between;">
                                 <div class="blog-image" style="height: 200px; overflow: hidden;">
                                     @if ($item->gambar)
-                                    <a href="/detail-berita" class="d-block">
+                                    <a href="{{ route('detail-kegiatan', ['id' => $item->id]) }}" class="d-block">
                                         <img src="{{ asset('storage/' . $item->gambar) }}" alt="" style="width: 100%; height: 100%; object-fit: cover;" />
                                     </a>
                                     @endif
-                                    <div class="blog-categories">
-                                        <a href="/detail-berita" class="categories-btn bg-white text-dark-gray text-dark-gray-hover text-uppercase fw-700">Berita</a>
-                                    </div>
                                 </div>
                                 <div class="card-body p-12 lg-p-10" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                     @if ($item->judul)
-                                    <a href="/detail-berita" 
+                                    <a href="{{ route('detail-kegiatan', ['id' => $item->id]) }}" 
                                     class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block" 
                                     style="min-height: 50px; max-height: 67px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                    {!! $item->judul !!}
+                                        {!! $item->judul !!}
                                     </a>
                                     @endif
                                     @if ($item->deskripsi)

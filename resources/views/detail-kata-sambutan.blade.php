@@ -25,18 +25,18 @@
     <body data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="">
         <!-- start header --> 
         <header class="header-with-topbar">
-            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('images/demo-hosting-header-bg.jpg'); padding-top: 10px; padding-bottom: 10px;">
+            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('{{asset('images/demo-hosting-header-bg.jpg')}}'); padding-top: 10px; padding-bottom: 10px;">
                 <div class="container-fluid">
                     <div class="row align-items-center m-0">
                         <div class="col-6 d-flex align-items-center">
                             <a href="#" class="text-white me-3">
-                                <img src="images/flag-id.png" alt="IDN" width="20"> IDN
+                                <img src="{{asset('images/flag-id.png')}}" alt="IDN" width="20"> IDN
                             </a>
                             <a href="#" class="text-white me-3">
-                                <img src="images/flag-uk.png" alt="ENG" width="20"> ENG
+                                <img src="{{asset('images/flag-uk.png')}}" alt="ENG" width="20"> ENG
                             </a>
                             <a href="#" class="text-white">
-                                <img src="images/flag-kr.png" alt="KR" width="20"> KR
+                                <img src="{{asset('images/flag-kr.png')}}" alt="KR" width="20"> KR
                             </a>
                         </div>
                         <div class="col-6 text-end">
@@ -57,7 +57,7 @@
             <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
                 <div class="container">
                     <a class="navbar-brand" href="international-women-university-beranda.html">
-                        <img src="images/Iwu.png" data-at2x="images/Iwu.png" alt="Logo" class="default-logo">
+                        <img src="{{asset('images/Iwu.png')}}" data-at2x="{{asset('images/Iwu.png')}}" alt="Logo" class="default-logo">
                         <span class="brand-text text-black">Teknik Informatika</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
@@ -219,25 +219,39 @@
             <!-- end navigation -->
         </header>
         <!-- end header -->
+        <!-- start page title --> 
+        <section class="p-0">
+            <div class="container">
+                <div class="row align-items-center justify-content-center extra-very-small-screen">
+                    <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                        <h1 class="fw-700 text-dark-gray ls-minus-2px" style="margin-top: 100px;">Detail Kata Sambutan</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end page title -->
         <!-- start section -->
         <div class="container">
-            <h1>Detail Kata Sambutan</h1>
-            
-            <div class="row">
-                <div class="col-lg-6">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 d-flex flex-column align-items-center text-center">
+                    <!-- Foto -->
                     @if ($pimpinanStaff && $pimpinanStaff->foto)
-                    <div class="image-container">
-                        <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="{{ $pimpinanStaff->nama }}">
+                    <div class="image-container mb-3">
+                        <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="{{ $pimpinanStaff->nama }}" class="img-fluid">
                     </div>
                     @endif
-                </div>
-                <div class="col-lg-6">
-                    @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
-                    <p class="section-text">{!! $pimpinanStaff->kata_sambutan !!}</p>
-                    @endif
-                    <div class="section-text fs-18 text-dark-gray mt-5px mb-10px">
+
+                    <!-- Nama dan Status -->
+                    <div class="section-text fs-18 text-dark-gray mt-3 mb-3">
                         <span class="fw-600">{{ $pimpinanStaff->nama }}</span>, {{ $pimpinanStaff->status }}
                     </div>
+                </div>
+                
+                <!-- Kata Sambutan (Full-width) -->
+                <div class="col-12">
+                    @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
+                    <p class="section-text text-left">{!! $pimpinanStaff->kata_sambutan !!}</p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -306,8 +320,8 @@
         </div>
         <!-- end scroll progress -->
         <!-- javascript libraries -->
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script> 
+        <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/vendors.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
     </body>
 </html>

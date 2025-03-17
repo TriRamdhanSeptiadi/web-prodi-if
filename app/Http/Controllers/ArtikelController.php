@@ -13,4 +13,10 @@ class ArtikelController extends Controller
         
         return view('artikel', compact('publikasi'));
     }
+
+    public function show($id)
+    {
+        $publikasi = Publikasi::findOrFail($id);
+        return view('detail-artikel', compact('publikasi'));
+    }
 }
