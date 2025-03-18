@@ -196,20 +196,6 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/biaya"><i class="bi bi-credit-card"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Biaya</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/beasiswa"><i class="bi bi-gift"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Beasiswa</span>
-                                            </div>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>

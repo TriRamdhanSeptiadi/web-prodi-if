@@ -56,7 +56,7 @@
             <!-- start navigation -->
             <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
                 <div class="container">
-                    <a class="navbar-brand" href="international-women-university-beranda.html">
+                    <a class="navbar-brand" href="/">
                         <img src="images/Iwu.png" data-at2x="images/Iwu.png" alt="Logo" class="default-logo">
                         <span class="brand-text text-black">Teknik Informatika</span>
                     </a>
@@ -193,20 +193,6 @@
                                         <a href="/persyaratan-masuk"><i class="bi bi-check-circle"></i>
                                             <div class="submenu-icon-content">
                                                 <span>Persyaratan Masuk</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/biaya"><i class="bi bi-credit-card"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Biaya</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/beasiswa"><i class="bi bi-gift"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Beasiswa</span>
                                             </div>
                                         </a>
                                     </li>

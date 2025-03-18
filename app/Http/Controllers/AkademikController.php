@@ -20,6 +20,7 @@ use App\Models\KurikulumSemester5;
 use App\Models\KurikulumSemester6;
 use App\Models\KurikulumSemester7;
 use App\Models\KurikulumSemester8;
+use App\Models\TracerStudy;
 
 class AkademikController extends Controller
 {
@@ -42,7 +43,8 @@ class AkademikController extends Controller
         $semester6 = KurikulumSemester6::all();
         $semester7 = KurikulumSemester7::all();
         $semester8 = KurikulumSemester8::all();
+        $tracerStudy = TracerStudy::first();
         
-        return view('kurikulum', compact('kurikulum', 'standarKompetensiLulusan', 'sasaranKualitas', 'capaianPembelajaran', 'sikapCPL', 'pengetahuanCPL', 'keterampilanUmumCPL', 'keterampilanKhususCPL', 'kompetensi', 'semester1', 'semester2', 'semester3', 'semester4', 'semester5', 'semester6', 'semester7', 'semester8'));
+        return view('kurikulum', compact('kurikulum', 'standarKompetensiLulusan', 'sasaranKualitas', 'capaianPembelajaran', 'sikapCPL', 'pengetahuanCPL', 'keterampilanUmumCPL', 'keterampilanKhususCPL', 'kompetensi', 'semester1', 'semester2', 'semester3', 'semester4', 'semester5', 'semester6', 'semester7', 'semester8', 'tracerStudy'));
     }
 }

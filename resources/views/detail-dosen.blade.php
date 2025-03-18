@@ -196,20 +196,6 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/biaya"><i class="bi bi-credit-card"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Biaya</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/beasiswa"><i class="bi bi-gift"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Beasiswa</span>
-                                            </div>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -219,33 +205,66 @@
             <!-- end navigation -->
         </header>
         <!-- end header -->
-        <!-- start page title --> 
-        <section class="p-0">
-            <div class="container">
-                <div class="row align-items-center justify-content-center extra-very-small-screen">
-                    <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="fw-700 text-dark-gray ls-minus-2px" style="margin-top: 100px;">Detail Dosen</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end page title -->
         <!-- start section -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 d-flex flex-column align-items-center text-center">
-                    <!-- Foto -->
-                    @if ($pimpinanStaff && $pimpinanStaff->foto)
-                    <div class="image-container mb-3">
-                        <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="{{ $pimpinanStaff->nama }}" class="img-fluid">
-                    </div>
-                    @endif
-
-                    <!-- Nama dan Status -->
-                    <div class="section-text fs-18 text-dark-gray mt-3 mb-3">
-                        <span class="fw-600">{{ $pimpinanStaff->nama }}</span>, {{ $pimpinanStaff->status }}
-                    </div>
-                </div>
+        <div class="container mt-12">
+        <div class="row">
+            <!-- Profil Dosen -->
+            <div class="col-md-4 text-center p-3 border rounded shadow-sm">
+                @if ($pimpinanStaff && $pimpinanStaff->foto)
+                <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" class="img-fluid rounded-circle" width="150" alt="Foto Dosen">
+                @endif
+                <h5 class="mt-2">{{ $pimpinanStaff->nama }}</h5>
+                <h6>{{ $pimpinanStaff->status }}</h6>
+                <p><i class="bi bi-person"></i> 405019203</p>
+                <p><i class="bi bi-envelope"></i> sririani@iwu.ac.id</p>
+                <a href="#" class="btn btn-secondary w-100 mb-2">Google Scholar</a>
+                <a href="#" class="btn btn-warning w-100">Scopus</a>
+            </div>
+            
+            <!-- Mata Kuliah dan Jadwal -->
+            <div class="col-md-8">
+                <h4>Mata Kuliah yang Diampu dan Jadwal Perkuliahan</h4>
+                <table class="table table-bordered mt-3">
+                    <thead class="table-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Mata Kuliah</th>
+                            <th>Hari</th>
+                            <th>Waktu</th>
+                            <th>Ruang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Biologi Sel</td>
+                            <td>Sabtu</td>
+                            <td>07.00-09.30</td>
+                            <td>R. 201 Kampus 1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Struktur dan Perkembangan Tumbuhan</td>
+                            <td>Rabu</td>
+                            <td>12.50-15.20</td>
+                            <td>R. 203 Kampus 1</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Komputer Aplikasi IT III (Bioinformatika I)</td>
+                            <td>Senin</td>
+                            <td>12.50-15.20</td>
+                            <td>R. 108 Kampus 1</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Biostatistika</td>
+                            <td>Senin</td>
+                            <td>07.00-09.30</td>
+                            <td>R. 201 Kampus 1</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!-- end section -->

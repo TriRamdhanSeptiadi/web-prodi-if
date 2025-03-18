@@ -196,20 +196,6 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/biaya"><i class="bi bi-credit-card"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Biaya</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/beasiswa"><i class="bi bi-gift"></i>
-                                            <div class="submenu-icon-content">
-                                                <span>Beasiswa</span>
-                                            </div>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -227,11 +213,13 @@
                         <h5 class="text-dark-gray fw-700">Dosen dan Staf Prodi Teknik Informatika</h5>
                         <div class="row">
                             <div class="col-12 p-md-0">
-                                <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                    <li class="grid-sizer"></li>
+                            <ul class="blog-classic blog-wrapper grid-loading grid grid-4col xl-grid-4col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large" 
+                                data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 800, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'
+                                style="list-style: none; padding-left: 0;">
+                                    <li class="grid-sizer" style="list-style-type: none;"></li>
                                     <!-- start blog item -->
                                     @foreach ($pimpinanStaff as $item)
-                                    <li class="grid-item">
+                                    <li class="grid-item" style="list-style-type: none; display: inline-block;">
                                         <div class="card bg-transparent border-0 h-100">
                                             @if ($item->foto)
                                             <div class="blog-image position-relative overflow-hidden border-radius-4px">
@@ -241,13 +229,13 @@
                                             <div class="card-body p-0 pt-30px sm-pt-20px lg-pb-20px">
                                             @if ($item->nama)
                                         <!-- Link nama ke halaman detail berdasarkan ID -->
-                                            <a href="{{ route('detail-dosen', ['id' => $item->id]) }}" class="text-dark-gray text-dark-gray-hover fw-700 categories-text">
+                                            <a href="{{ route('detail-dosen', ['id' => $item->id]) }}" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">
                                                 {!! $item->nama !!}
                                             </a>
                                         @endif
                                         @if ($item->status)
                                         <!-- Link status ke halaman detail berdasarkan ID -->
-                                        <a href="{{ route('detail-dosen', ['id' => $item->id]) }}" class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100">
+                                        <a href="{{ route('detail-dosen', ['id' => $item->id]) }}">
                                             {!! $item->status !!}
                                         </a>
                                         @endif

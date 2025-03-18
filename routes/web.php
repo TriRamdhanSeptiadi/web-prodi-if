@@ -138,6 +138,8 @@ Route::get('/detail-fasilitas', function () {
     return view('detail-fasilitas');
 });
 
+Route::get('/detail-fasilitas/{id}', [KampusController::class, 'show'])->name('detail-fasilitas');
+
 Route::get('/detail-dosen', function () {
     return view('detail-dosen');
 });
