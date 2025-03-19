@@ -439,17 +439,17 @@
                                     </a>
                                     @endif
                                 </div>
-                                <div class="card-body p-12 lg-p-10" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div class="card-body p-12 lg-p-10" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 0;">
                                     @if ($item->judul)
                                     <a href="{{ route('detail-berita', ['id' => $item->id]) }}" 
-                                    class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block" 
-                                    style="min-height: 50px; max-height: 67px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                        {!! $item->judul !!}
+                                    class="card-title mb-3 fw-600 fs-20 text-dark-gray d-inline-block" 
+                                    style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                                        {!! Str::limit($item->judul, 90) !!}
                                     </a>
                                     @endif
                                     @if ($item->deskripsi)
-                                    <p style="min-height: 70px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                                        {!! $item->deskripsi !!}
+                                    <p style="margin-top: 5px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                                        {!! Str::limit($item->deskripsi, 120) !!}
                                     </p>
                                     @endif
                                     <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase mt-auto">
@@ -475,7 +475,7 @@
         <!-- start footer -->
         <footer class="bg-gradient-aztec-green position-relative">
             <div class="position-absolute left-minus-100px top-25px">
-                <img src="images/demo-elearning-bg-05.png" alt="" class="w-80">
+                <img src="{{asset('images/demo-elearning-bg-05.png')}}" alt="" class="w-80">
             </div>
             <div class="background-position-center-top h-100 w-100 position-absolute left-0px top-0" style="background-image: url('images/vertical-line-bg-small.svg')"></div>
             <div class="container overlap-section">

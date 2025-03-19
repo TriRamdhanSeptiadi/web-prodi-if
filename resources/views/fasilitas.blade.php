@@ -206,9 +206,9 @@
         </header>
         <!-- end header -->
         <!-- Start Section -->
-        @foreach ($kampus as $item)
         <section id="profil" class="mb-0 pb-0" style="margin-top: 50px;">
             <div class="container text-center">
+                @foreach ($kampus as $item)
                 <div class="card shadow-lg border-0 rounded-3 overflow-hidden"
                     data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 600, "delay":100, "easing": "easeOutQuad" }'>
                     <div class="card-body p-4">
@@ -243,9 +243,9 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </section>
-        @endforeach
         <!-- End Section -->
         <!-- start footer -->
         <footer class="bg-gradient-aztec-green position-relative">

@@ -234,13 +234,13 @@
                                     @if ($item->judul)
                                     <a href="{{ route('detail-artikel', ['id' => $item->id]) }}" 
                                     class="card-title mb-15px fw-600 fs-20 text-dark-gray d-inline-block" 
-                                    style="min-height: 50px; max-height: 67px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                                        {!! $item->judul !!}
+                                    style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                                        {!! Str::limit($item->judul, 90) !!}
                                     </a>
                                     @endif
                                     @if ($item->deskripsi)
-                                    <p style="min-height: 70px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-                                        {!! $item->deskripsi !!}
+                                    <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                                        {!! Str::limit($item->deskripsi, 120) !!}
                                     </p>
                                     @endif
                                     <div class="d-flex justify-content-center align-items-center position-relative overflow-hidden fs-14 text-uppercase mt-auto">
