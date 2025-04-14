@@ -29,7 +29,9 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->colors([
                 'primary' => '#0D47A1',
-            ])            
+            ])
+            ->favicon(asset('images/Iwu.png'))
+            ->brandName('Admin')            
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
