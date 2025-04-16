@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PimpinanStaffResource\Pages;
 use App\Filament\Resources\PimpinanStaffResource\RelationManagers;
+use App\Services\GoogleScholarService;
 use App\Models\PimpinanStaff;
 use Filament\Forms;
 use Filament\Forms\Get;
@@ -23,6 +24,12 @@ class PimpinanStaffResource extends Resource
     protected static ?string $navigationLabel = 'Pimpinan dan Staff';
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    public function getScholarArticlesProperty()
+    {
+        $service = app(GoogleScholarService::class);
+        return $service->searchArticles($this->record->nama);
+    }
 
     public static function form(Form $form): Form
     {

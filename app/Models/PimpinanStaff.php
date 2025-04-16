@@ -14,7 +14,8 @@ class PimpinanStaff extends Model
         'foto',
         'nama',
         'status',
-        'kata_sambutan'
+        'kata_sambutan',
+        'scholar_profile'
     ];
 
     public function kataSambutan()

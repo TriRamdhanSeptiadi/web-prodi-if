@@ -146,6 +146,8 @@ Route::get('/detail-dosen', function () {
 
 Route::get('/detail-dosen/{id}', [DosenStaffController::class, 'show'])->name('detail-dosen');
 
+Route::get('/dosen/{nama}/detail-jurnal', [DosenStaffController::class, 'showArtikelDosen'])->name('detail-jurnal');
+
 Route::get('/detail-kata-sambutan', function () {
     return view('detail-kata-sambutan');
 });
