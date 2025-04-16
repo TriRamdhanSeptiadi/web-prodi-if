@@ -213,18 +213,19 @@
                 @if ($pimpinanStaff && $pimpinanStaff->foto)
                 <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" class="img-fluid rounded-circle" width="150" alt="Foto Dosen">
                 @endif
-                <h5 class="mt-2">{{ $pimpinanStaff->nama }}</h5>
-                <h6>{{ $pimpinanStaff->status }}</h6>
-                <p><i class="bi bi-person"></i> 405019203</p>
-                <p><i class="bi bi-envelope"></i> sririani@iwu.ac.id</p>
-                @if ($pimpinanStaff->scholar_profile)
-                    <a href="{{ $pimpinanStaff->scholar_profile }}" target="_blank" class="btn btn-secondary w-100 mb-2">
-                        Google Scholar
-                    </a>
+                <h5 class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100 mt-5">{{ $pimpinanStaff->nama }}</h5>
+                <p>
+                    <i class="bi bi-person"></i> {{ $pimpinanStaff->nidn }} <br>
+                    <i class="bi bi-envelope"></i> {{ $pimpinanStaff->email }}
+                </p>
+                @if ($pimpinanStaff->id_google_scholar)
+                    @php
+                        $scholarUrl = 'https://scholar.google.com/citations?user=' . $pimpinanStaff->id_google_scholar;
+                    @endphp
+                    <a href="{{ $scholarUrl }}" target="_blank" class="btn w-100" style="background-color: #0D47A1; color: white;">Google Scholar</a>
                 @else
                     <span class="text-muted">Profil Google Scholar belum ditemukan.</span>
                 @endif
-                <a href="#" class="btn btn-warning w-100">Scopus</a>
             </div>
             
             <!-- Mata Kuliah dan Jadwal -->
@@ -258,7 +259,7 @@
                 @endforelse
                 </tbody>
             </table>
-        </div>
+            </div>
         </div>
         <!-- end section -->
         <!-- start footer -->

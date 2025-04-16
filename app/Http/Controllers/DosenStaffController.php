@@ -28,29 +28,27 @@ class DosenStaffController extends Controller
 
         $service = new GoogleScholarService();
 
-        // Cek atau cari profil scholar
-        if (!$pimpinanStaff->scholar_profile) {
+        // Jika id_google_scholar kosong, cari profil scholar dan simpan hanya ID-nya
+        if (!$pimpinanStaff->id_google_scholar) {
             $profileLink = $service->searchAuthorProfile($nama);
 
             if ($profileLink) {
-                $pimpinanStaff->scholar_profile = $profileLink;
-                $pimpinanStaff->save();
+                $parsed = parse_url($profileLink);
+                parse_str($parsed['query'] ?? '', $queryParams);
+                $authorId = $queryParams['user'] ?? null;
+
+                if ($authorId) {
+                    $pimpinanStaff->id_google_scholar = $authorId;
+                    $pimpinanStaff->save();
+                }
             }
         }
 
-        // Ambil author_id dari scholar_profile
-        $authorId = null;
-
-        if ($pimpinanStaff->scholar_profile) {
-            $parsed = parse_url($pimpinanStaff->scholar_profile);
-            parse_str($parsed['query'] ?? '', $queryParams);
-            $authorId = $queryParams['user'] ?? null;
-        }
-
+        // Ambil ID Google Scholar dari kolom id_google_scholar
         $results = [];
 
-        if ($authorId) {
-            $results = $service->getArticlesByAuthorId($authorId);
+        if ($pimpinanStaff->id_google_scholar) {
+            $results = $service->getArticlesByAuthorId($pimpinanStaff->id_google_scholar);
         }
 
         return view('detail-dosen', compact('pimpinanStaff', 'results', 'nama'));
@@ -64,4 +62,17 @@ class DosenStaffController extends Controller
 
         return view('detail-jurnal', compact('results', 'nama'));
     }
+
+    private function extractGoogleScholarId($input)
+    {
+        // Jika input sudah ID (tanpa "http"), langsung return
+        if (!str_contains($input, 'http')) {
+            return $input;
+        }
+
+        // Jika input berupa link, ambil ID-nya dari parameter `user`
+        parse_str(parse_url($input, PHP_URL_QUERY), $queryParams);
+        return $queryParams['user'] ?? null;
+    }
+
 }
