@@ -231,35 +231,35 @@
             
             <!-- Mata Kuliah dan Jadwal -->
             <div class="col-md-8">
-            <h4>Data Penelitian</h4>
-            <table class="table table-bordered mt-3">
-                <thead class="table-light">
-                    <tr>
-                        <th style="width: 6%;">No</th>
-                        <th>Judul Artikel</th>
-                        <th style="width: 16%;">Tahun Terbit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @forelse($results as $index => $article)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>
-                            <a href="{{ $article['link'] ?? '#' }}" target="_blank">
-                                {{ $article['title'] ?? '-' }}
-                            </a>
-                        </td>
-                        <td>
-                            {{ $article['year'] ?? '-' }}
-                        </td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="3" class="text-center">Tidak ada artikel ditemukan untuk dosen ini.</td>
-                    </tr>
-                @endforelse
-                </tbody>
-            </table>
+                <h4>Data Penelitian</h4>
+                <table class="table table-bordered mt-3 text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="align-middle" style="width: 6%;">No</th>
+                            <th class="align-middle">Judul Artikel</th>
+                            <th class="align-middle" style="width: 16%;">Tahun Terbit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($results as $index => $article)
+                        <tr>
+                            <td class="align-middle">{{ $index + 1 }}</td>
+                            <td class="align-middle">
+                                <a href="{{ $article['link'] ?? '#' }}" target="_blank">
+                                    {{ $article['title'] ?? '-' }}
+                                </a>
+                            </td>
+                            <td class="align-middle">
+                                {{ $article['year'] ?? '-' }}
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center align-middle">Tidak ada artikel ditemukan untuk dosen ini.</td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+                </table>
             </div>
 
             @if (!empty($citationGraph))
@@ -302,36 +302,36 @@
             @endif
 
             @isset($citationStats['citations'])
-                <h5 class="mt-4">Statistik Kutipan</h5>
-                <table class="table table-bordered" style="max-width: 500px">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Semua</th>
-                            <th>Sejak 2020</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Kutipan</td>
-                            <td>{{ $citationStats['citations']['all'] ?? 0 }}</td>
-                            <td>{{ $citationStats['citations']['since_2020'] ?? 0 }}</td>
-                        </tr>
-                        <tr>
-                            <td>Indeks-h</td>
-                            <td>{{ $citationStats['h_index']['all'] ?? 0 }}</td>
-                            <td>{{ $citationStats['h_index']['since_2020'] ?? 0 }}</td>
-                        </tr>
-                        <tr>
-                            <td>Indeks-i10</td>
-                            <td>{{ $citationStats['i10_index']['all'] ?? 0 }}</td>
-                            <td>{{ $citationStats['i10_index']['since_2020'] ?? 0 }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            @else
-                <p>Data statistik kutipan tidak tersedia.</p>
-            @endisset
+            <h5 class="mt-4">Statistik Kutipan</h5>
+            <table class="table table-bordered text-center" style="max-width: 500px">
+                <thead>
+                    <tr>
+                        <th class="align-middle"></th>
+                        <th class="align-middle">Semua</th>
+                        <th class="align-middle">Sejak 2020</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle">Kutipan</td>
+                        <td class="align-middle">{{ $citationStats['citations']['all'] ?? 0 }}</td>
+                        <td class="align-middle">{{ $citationStats['citations']['since_2020'] ?? 0 }}</td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle">Indeks-h</td>
+                        <td class="align-middle">{{ $citationStats['h_index']['all'] ?? 0 }}</td>
+                        <td class="align-middle">{{ $citationStats['h_index']['since_2020'] ?? 0 }}</td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle">Indeks-i10</td>
+                        <td class="align-middle">{{ $citationStats['i10_index']['all'] ?? 0 }}</td>
+                        <td class="align-middle">{{ $citationStats['i10_index']['since_2020'] ?? 0 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        @else
+            <p>Data statistik kutipan tidak tersedia.</p>
+        @endisset
         </div>
         <!-- end section -->
         <!-- start footer -->
