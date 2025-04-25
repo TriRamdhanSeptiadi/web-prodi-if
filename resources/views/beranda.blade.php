@@ -3,18 +3,18 @@
 @section('content')
     <!-- start banner -->
     <section class="p-0 border-radius-6px full-screen md-h-600px sm-h-450px ipad-top-space-margin position-relative overflow-hidden">
-            <div id="particles-style-01" class="position-absolute h-100 top-0 left-0 w-100" data-particle="true" data-particle-options='{"particles":{"number":{"value":10,"density":{"enable":true,"value_area":800}},"color":{"value":["#000000", "#BEFF01"]},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":4,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true}'></div>
+        <div id="particles-style-01" class="position-absolute h-100 top-0 left-0 w-100" data-particle="true" data-particle-options='{"particles":{"number":{"value":10,"density":{"enable":true,"value_area":800}},"color":{"value":["#000000", "#BEFF01"]},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":4,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true}'></div>
             <div class="looping-wrapper md-h-100"></div>
-            <div class="text-base-color absolute-middle-center banner-title fw-600 d-none d-md-inline-block" data-anime='{ "el": "lines", "translateX": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>creative</div>
-            <div class="container h-100 position-relative">
-                <div class="row align-items-center justify-content-center h-100">
+                <div class="text-base-color absolute-middle-center banner-title fw-600 d-none d-md-inline-block" data-anime='{ "el": "lines", "translateX": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'></div>
+                    <div class="container h-100 position-relative">
+                        <div class="row align-items-center justify-content-center h-100">
                     <div class="col-12 text-center">
                         <div class="fs-120 lh-120 sm-fs-100 text-dark-gray fw-600 ls-minus-4px" data-anime='{ "el": "lines", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 500, "staggervalue": 300, "easing": "easeOutQuad" }'>Program Studi Teknik Informatika</div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- end banner -->
+    </section>
+    <!-- end banner -->
         <!-- start section -->
         <section class="p-0">
             <div class="container">
@@ -108,7 +108,7 @@
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
                                 <!-- Link di sekitar elemen bulat -->
-                                <a href="/visi-misi-tujuan#visi" class="process-step-icon-link">
+                                <a href="{{ url('/visi-misi-tujuan?tab=visi') }}" class="process-step-icon-link">
                                     <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
                                         <span class="fw-600 number position-relative z-index-1">01</span>
                                         <div class="box-overlay bg-base-color rounded-circle"></div>
@@ -126,7 +126,7 @@
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
                                 <!-- Link di sekitar elemen bulat -->
-                                <a href="/visi-misi-tujuan#misi" class="process-step-icon-link">
+                                <a href="{{ url('/visi-misi-tujuan?tab=misi') }}" class="process-step-icon-link">
                                     <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
                                         <span class="fw-600 number position-relative z-index-1">02</span>
                                         <div class="box-overlay bg-base-color rounded-circle"></div>
@@ -144,7 +144,7 @@
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2 d-md-none"></span>
                                 <!-- Link di sekitar elemen bulat -->
-                                <a href="/visi-misi-tujuan#tujuan" class="process-step-icon-link">
+                                <a href="{{ url('/visi-misi-tujuan?tab=tujuan') }}" class="process-step-icon-link">
                                     <div class="process-step-icon d-flex justify-content-center align-items-center mx-auto rounded-circle h-80px w-80px fs-18 bg-white box-shadow-large text-dark-gray alt-font fw-500">
                                         <span class="fw-600 number position-relative z-index-1">03</span>
                                         <div class="box-overlay bg-base-color rounded-circle"></div>
@@ -165,52 +165,49 @@
             </div>
         </section>
         <!-- end section -->
-        <!-- start page title --> 
-        <section class="p-0">
-            <div class="container">
-                <div class="row align-items-center justify-content-center extra-very-small-screen">
-                    <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="fw-700 text-dark-gray mb-20px ls-minus-2px">Kata Sambutan</h1>
-                        <h2 class="fw-400 ls-0px mb-0">Selamat datang di website resmi program studi teknik informatika IWU</h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end page title -->
         <!-- start section -->
-        <section class="p-0 md-pt-50px position-relative">
+        <section class="pt-5 pb-3">
             <div class="container">
-                <div class="row align-items-center position-relative">
-                    <!-- Kolom Gambar -->
-                    <div class="col-lg-6">
-                        @if ($pimpinanStaff && $pimpinanStaff->foto)
-                        <div class="image-container" data-bottom-top="transform: translateY(-80px)" data-top-bottom="transform: translateY(80px)">
-                            <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="Informatika">
-                        </div>
+                {{-- gx-5 = gutter horisontal 3rem (default), g-lg-5 untuk breakpoint lg --}}
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <!-- Gambar -->
+                    <div class="col-10 col-md-6 col-lg-5 d-flex justify-content-center justify-content-lg-end pe-lg-5">
+                        @if($pimpinanStaff?->foto)
+                            <img 
+                                src="{{ asset('storage/' . $pimpinanStaff->foto) }}"
+                                alt="Foto Pimpinan"
+                                class="img-fluid rounded"
+                                style="max-width: 250px;"
+                            >
                         @endif
                     </div>
-                    <!-- Kolom Teks -->
-                    <div class="col-lg-6 content-container" data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50 }'>
-                        @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
-                        <p class="section-text">
-                            {!! Str::before($pimpinanStaff->kata_sambutan, '</p>') . '</p>' !!}
-                        </p>
+
+                    <!-- Teks sambutan -->
+                    <div class="col-12 col-md-10 col-lg-7 ps-lg-5">
+                        <h3 class="fw-700 text-dark-gray ls-minus-2px">Kata Sambutan</h1>
+
+                        @if($pimpinanStaff?->kata_sambutan)
+                            <p class="section-text">
+                                {!! Str::before($pimpinanStaff->kata_sambutan, '</p>') . '</p>' !!}
+                            </p>
                         @endif
-                        <div class="section-text fs-18 text-dark-gray mt-5px mb-10px">
-                            @if ($pimpinanStaff && $pimpinanStaff->kata_sambutan)
+
+                        <p class="section-text fs-18 text-dark-gray mt-5px mb-10px">
                             <span class="fw-600">{!! $pimpinanStaff->nama !!},</span> {!! $pimpinanStaff->status !!}
-                            @endif
+                        </p>
+
+                        <div class="text-center text-lg-start">
+                            <a href="{{ route('pimpinanStaff.showDetail', $pimpinanStaff->id) }}" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
+                                <span class="bg-base-color"></span>Lihat Selengkapnya
+                            </a>
                         </div>
-                        <a href="{{ route('pimpinanStaff.showDetail', $pimpinanStaff->id) }}" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700">
-                            <span class="bg-base-color"></span>Lihat Selengkapnya
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- end section -->
         <!-- start section -->
-        <section class="pb-0">
+        <section class="pt-4 pb-0">
             <div class="container">
                 <div class="row align-items-center mb-4">
                     <div class="col-md-6 text-center text-md-start sm-mb-20px">

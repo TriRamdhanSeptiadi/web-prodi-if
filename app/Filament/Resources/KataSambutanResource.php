@@ -28,7 +28,13 @@ class KataSambutanResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto')->required(),
+                Forms\Components\FileUpload::make('foto')
+                    ->label('Foto')
+                    ->image()
+                    ->imageEditor() // aktifkan fitur crop/edit bawaan Filament
+                    ->imageResizeTargetWidth(1000)
+                    ->imageResizeTargetHeight(1700)
+                    ->required(),
                 Forms\Components\Select::make('status')
                     ->options([
                         'Kepala Program Studi Teknik Informatika' => 'Kepala Program Studi Teknik Informatika',
