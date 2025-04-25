@@ -25,7 +25,7 @@
     <body data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="">
         <!-- start header --> 
         <header class="header-with-topbar">
-            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('{{asset('images/demo-hosting-header-bg.jpg')}}'); padding-top: 10px; padding-bottom: 10px;">
+            <div class="header-top-bar top-bar-dark cover-background" style="background-color: #0D47A1; padding-top: 10px; padding-bottom: 10px;">
                 <div class="container-fluid">
                     <div class="row align-items-center m-0">
                         <div class="col-6 d-flex align-items-center">
@@ -205,12 +205,19 @@
             <!-- end navigation -->
         </header>
         <!-- end header -->
-        <!-- start page title --> 
-        <section class="p-0">
+        <!-- start page title -->
+        <section class="page-title-section" style="padding-top: 120px; padding-bottom: 0px;">
             <div class="container">
                 <div class="row align-items-center justify-content-center extra-very-small-screen">
-                    <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="fw-700 text-dark-gray ls-minus-2px" style="margin-top: 100px;">Detail Kegiatan</h1>
+                    <div class="col-xl-10 col-lg-11 text-center position-relative page-title-extra-large"
+                        data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                        
+                        @if ($publikasi && $publikasi->judul)
+                        <h1 class="fw-700 text-dark-gray ls-minus-2px mb-3" style="word-break: break-word;">
+                            {!! $publikasi->judul !!}
+                        </h1>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -230,13 +237,6 @@
                     <!-- Nama dan Status -->
                     <div class="section-text fs-18 text-dark-gray mt-3 mb-3">
                         <span class="fw-600">{{ \Carbon\Carbon::parse($publikasi->waktu)->translatedFormat('d F Y') }}</span>
-                    </div>
-
-                    <!-- Kata Sambutan (Full-width) -->
-                    <div class="col-12">
-                        @if ($publikasi && $publikasi->judul)
-                        <p class="section-text text-left">{!! $publikasi->judul !!}</p>
-                        @endif
                     </div>
                 </div>
                     <!-- Kata Sambutan (Full-width) -->

@@ -21,11 +21,12 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}"/>
         <link rel="stylesheet" href="{{asset('demos/hosting/hosting.css')}}" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body data-mobile-nav-style="full-screen-menu" data-mobile-nav-bg-color="">
         <!-- start header --> 
         <header class="header-with-topbar">
-            <div class="header-top-bar top-bar-dark cover-background" style="background-image: url('{{asset('images/demo-hosting-header-bg.jpg')}}'); padding-top: 10px; padding-bottom: 10px;">
+            <div class="header-top-bar top-bar-dark cover-background" style="background-color: #0D47A1; padding-top: 10px; padding-bottom: 10px;">
                 <div class="container-fluid">
                     <div class="row align-items-center m-0">
                         <div class="col-6 d-flex align-items-center">
@@ -213,59 +214,124 @@
                 @if ($pimpinanStaff && $pimpinanStaff->foto)
                 <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" class="img-fluid rounded-circle" width="150" alt="Foto Dosen">
                 @endif
-                <h5 class="mt-2">{{ $pimpinanStaff->nama }}</h5>
-                <h6>{{ $pimpinanStaff->status }}</h6>
-                <p><i class="bi bi-person"></i> 405019203</p>
-                <p><i class="bi bi-envelope"></i> sririani@iwu.ac.id</p>
-                <a href="#" class="btn btn-secondary w-100 mb-2">Google Scholar</a>
-                <a href="#" class="btn btn-warning w-100">Scopus</a>
+                <h5 class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100 mt-5">{{ $pimpinanStaff->nama }}</h5>
+                <p>
+                    <i class="bi bi-person"></i> {{ $pimpinanStaff->nidn }} <br>
+                    <i class="bi bi-envelope"></i> {{ $pimpinanStaff->email }}
+                </p>
+                @if ($pimpinanStaff->id_google_scholar)
+                    @php
+                        $scholarUrl = 'https://scholar.google.com/citations?user=' . $pimpinanStaff->id_google_scholar;
+                    @endphp
+                    <a href="{{ $scholarUrl }}" target="_blank" class="btn w-100" style="background-color: #0D47A1; color: white;">Google Scholar</a>
+                @else
+                    <span class="text-muted">Profil Google Scholar belum ditemukan.</span>
+                @endif
             </div>
             
             <!-- Mata Kuliah dan Jadwal -->
             <div class="col-md-8">
-                <h4>Mata Kuliah yang Diampu dan Jadwal Perkuliahan</h4>
-                <table class="table table-bordered mt-3">
+                <h4>Data Penelitian</h4>
+                <table class="table table-bordered mt-3 text-center">
                     <thead class="table-light">
                         <tr>
-                            <th>No</th>
-                            <th>Nama Mata Kuliah</th>
-                            <th>Hari</th>
-                            <th>Waktu</th>
-                            <th>Ruang</th>
+                            <th class="align-middle" style="width: 6%;">No</th>
+                            <th class="align-middle">Judul Artikel</th>
+                            <th class="align-middle" style="width: 16%;">Tahun Terbit</th>
                         </tr>
                     </thead>
                     <tbody>
+                    @forelse($results as $index => $article)
                         <tr>
-                            <td>1</td>
-                            <td>Biologi Sel</td>
-                            <td>Sabtu</td>
-                            <td>07.00-09.30</td>
-                            <td>R. 201 Kampus 1</td>
+                            <td class="align-middle">{{ $index + 1 }}</td>
+                            <td class="align-middle">
+                                <a href="{{ $article['link'] ?? '#' }}" target="_blank">
+                                    {{ $article['title'] ?? '-' }}
+                                </a>
+                            </td>
+                            <td class="align-middle">
+                                {{ $article['year'] ?? '-' }}
+                            </td>
                         </tr>
+                    @empty
                         <tr>
-                            <td>2</td>
-                            <td>Struktur dan Perkembangan Tumbuhan</td>
-                            <td>Rabu</td>
-                            <td>12.50-15.20</td>
-                            <td>R. 203 Kampus 1</td>
+                            <td colspan="3" class="text-center align-middle">Tidak ada artikel ditemukan untuk dosen ini.</td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Komputer Aplikasi IT III (Bioinformatika I)</td>
-                            <td>Senin</td>
-                            <td>12.50-15.20</td>
-                            <td>R. 108 Kampus 1</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Biostatistika</td>
-                            <td>Senin</td>
-                            <td>07.00-09.30</td>
-                            <td>R. 201 Kampus 1</td>
-                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>
+
+            @if (!empty($citationGraph))
+                <h5 class="mt-4">Statistik Kutipan per Tahun</h5>
+                <canvas id="citationChart" width="600" height="300"></canvas>
+
+                <script>
+                    // Ambil data mentah dari PHP ke JS
+                    const citationData = @json($citationGraph);
+                    console.log(citationData); // Cek di console: harus muncul array of objects
+
+                    // Buat dua array: labels (tahun) dan values (jumlah kutipan)
+                    const labels = citationData.map(item => item.year);
+                    const values = citationData.map(item => item.citations);
+
+                    // Inisialisasi Chart.js
+                    const ctx = document.getElementById('citationChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Jumlah Kutipan',
+                                data: values,
+                                backgroundColor: 'rgba(13,71,161,0.6)',   // warna batang
+                                borderColor: 'rgba(13,71,161,1)',         // warna garis tepi
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    precision: 0
+                                }
+                            }
+                        }
+                    });
+                </script>
+            @endif
+
+            @isset($citationStats['citations'])
+            <h5 class="mt-4">Statistik Kutipan</h5>
+            <table class="table table-bordered text-center" style="max-width: 500px">
+                <thead>
+                    <tr>
+                        <th class="align-middle"></th>
+                        <th class="align-middle">Semua</th>
+                        <th class="align-middle">Sejak 2020</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle">Kutipan</td>
+                        <td class="align-middle">{{ $citationStats['citations']['all'] ?? 0 }}</td>
+                        <td class="align-middle">{{ $citationStats['citations']['since_2020'] ?? 0 }}</td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle">Indeks-h</td>
+                        <td class="align-middle">{{ $citationStats['h_index']['all'] ?? 0 }}</td>
+                        <td class="align-middle">{{ $citationStats['h_index']['since_2020'] ?? 0 }}</td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle">Indeks-i10</td>
+                        <td class="align-middle">{{ $citationStats['i10_index']['all'] ?? 0 }}</td>
+                        <td class="align-middle">{{ $citationStats['i10_index']['since_2020'] ?? 0 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        @else
+            <p>Data statistik kutipan tidak tersedia.</p>
+        @endisset
         </div>
         <!-- end section -->
         <!-- start footer -->
