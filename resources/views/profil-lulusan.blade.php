@@ -58,7 +58,7 @@
                  style="background-image: url('https://via.placeholder.com/1126x630')">
                 <div class="row justify-content-center mb-3">
                     <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h3 class="text-dark-gray fw-700 ls-minus-1px">Testimoni Alumni</h3>
+                        <h5 class="text-dark-gray fw-700 ls-minus-1px">Testimoni Alumni</h5>
                     </div>
                 </div>
                 <div class="row justify-content-center align-items-center mb-6 sm-mb-8" data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 100, "staggervalue": 150, "easing": "easeOutQuad" }'>

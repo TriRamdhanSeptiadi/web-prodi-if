@@ -99,7 +99,7 @@
                 <div class="bg-dark-gray border-radius-6px p-8 md-p-6 sm-p-10 position-relative overflow-hidden">
                     <div class="row justify-content-center mb-5">
                         <div class="col-lg-8 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                            <h2 class="text-white fw-700 ls-minus-1px z-index-1 position-relative">Visi, Misi dan Tujuan</h2>
+                            <h2 class="section-title text-white fw-700 ls-minus-1px z-index-1 position-relative">Visi, Misi dan Tujuan</h2>
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-md-3 justify-content-center" data-anime='{ "el": "childs", "translateX": [-30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
@@ -184,7 +184,7 @@
 
                     <!-- Teks sambutan -->
                     <div class="col-12 col-md-10 col-lg-7 ps-lg-5">
-                        <h3 class="fw-700 text-dark-gray ls-minus-2px">Kata Sambutan</h1>
+                        <h3 class="section-title fw-700 text-dark-gray ls-minus-2px">Kata Sambutan</h1>
 
                         @if($pimpinanStaff?->kata_sambutan)
                             <p class="section-text">
@@ -211,7 +211,7 @@
             <div class="container">
                 <div class="row align-items-center mb-4">
                     <div class="col-md-6 text-center text-md-start sm-mb-20px">
-                        <h2 class="fw-600 text-dark-gray mb-0 ls-minus-3px">Berita Terbaru</h2>
+                        <h2 class="section-title fw-600 text-dark-gray mb-0 ls-minus-3px">Berita Terbaru</h2>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <a href="/berita" class="btn btn-large btn-expand-ltr text-dark-gray btn-rounded fw-700"><span class="bg-base-color"></span>Jelajahi Semua Berita</a>

@@ -213,9 +213,9 @@
                         data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         
                         @if ($publikasi && $publikasi->judul)
-                        <h1 class="fw-700 text-dark-gray ls-minus-2px mb-3" style="word-break: break-word;">
+                        <h3 class="section-title fw-700 text-dark-gray ls-minus-2px mb-0" style="word-break: break-word;">
                             {!! $publikasi->judul !!}
-                        </h1>
+                        </h3>
                         @endif
 
                     </div>
