@@ -39,7 +39,8 @@ class AkreditasiResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('teks')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\ImageColumn::make('foto'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

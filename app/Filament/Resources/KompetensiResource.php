@@ -42,9 +42,11 @@ class KompetensiResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('teks')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('deskripsi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -43,7 +43,7 @@ class AkademikController extends Controller
         $semester6 = KurikulumSemester6::all();
         $semester7 = KurikulumSemester7::all();
         $semester8 = KurikulumSemester8::all();
-        $tracerStudy = TracerStudy::first();
+        $tracerStudy = TracerStudy::all();
         
         return view('kurikulum', compact('kurikulum', 'standarKompetensiLulusan', 'sasaranKualitas', 'capaianPembelajaran', 'sikapCPL', 'pengetahuanCPL', 'keterampilanUmumCPL', 'keterampilanKhususCPL', 'kompetensi', 'semester1', 'semester2', 'semester3', 'semester4', 'semester5', 'semester6', 'semester7', 'semester8', 'tracerStudy'));
     }

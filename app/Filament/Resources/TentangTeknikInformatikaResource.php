@@ -28,14 +28,14 @@ class TentangTeknikInformatikaResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('thumbnail')
-                        ->label('Thumbnail')
+                        ->label('Gambar')
                         ->image()
                         ->imageEditor() // aktifkan fitur crop/edit bawaan Filament
                         ->imageResizeMode('cover') // agar memenuhi ukuran target
                         ->imageCropAspectRatio('960:600') // rasio 960:700
                         ->imageResizeTargetWidth(960)
                         ->imageResizeTargetHeight(600)
-                        ->directory('thumbnails') // direktori penyimpanan, opsional
+                        ->directory('Gambar') // direktori penyimpanan, opsional
                         ->required(),
                 Forms\Components\RichEditor::make('deskripsi')
                         ->required()
@@ -47,9 +47,11 @@ class TentangTeknikInformatikaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('thumbnail'),
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->label('Gambar'),
                 Tables\Columns\TextColumn::make('deskripsi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

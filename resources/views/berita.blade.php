@@ -6,7 +6,7 @@
             <div class="container overlap-gap-section">
                 <div class="row justify-content-center align-items-center text-center text-md-start">
                     <div class="text-center" style="margin-top: 50px;">
-                        <h5 class="text-dark-gray fw-700 mb-0" data-aos="fade-down" data-aos-duration="1000">
+                        <h5 class="section-title text-dark-gray fw-700 mb-0" data-aos="fade-down" data-aos-duration="1000">
                             Berita
                         </h5>
                     </div>                    

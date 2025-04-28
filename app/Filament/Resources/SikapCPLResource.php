@@ -38,7 +38,8 @@ class SikapCPLResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('indikator')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

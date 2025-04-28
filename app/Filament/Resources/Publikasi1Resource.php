@@ -51,7 +51,8 @@ class Publikasi1Resource extends Resource
                 Tables\Columns\ImageColumn::make('gambar'),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('deskripsi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('waktu')
                     ->date()
                     ->sortable(),

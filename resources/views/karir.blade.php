@@ -7,7 +7,7 @@
                 <div class="card shadow-lg border-0 rounded-3 overflow-hidden" data-anime='{ "opacity": [0,1], "duration": 600, "easing": "easeOutQuad" }'>
                     <div class="card-body p-4">
                         <!-- Judul -->
-                        <h5 class="text-dark-gray fw-700" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 100, "easing": "easeOutQuad" }'>Peluang Karir</h5>
+                        <h1 class="section-title text-dark-gray fw-700" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 100, "easing": "easeOutQuad" }'>Peluang Karir</h1>
                         
                         <!-- Paragraf -->
                         @if ($karir->first() && $karir->first()->teks)

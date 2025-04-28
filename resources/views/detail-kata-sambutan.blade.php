@@ -210,7 +210,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center extra-very-small-screen">
                     <div class="col-xl-8 col-lg-10 text-center position-relative page-title-extra-large" data-anime='{ "el": "childs", "translateY": [-15, 0], "opacity": [0,1], "duration": 300, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h1 class="fw-700 text-dark-gray ls-minus-2px" style="margin-top: 100px;">Kata Sambutan</h1>
+                        <h3 class="section-title fw-700 text-dark-gray ls-minus-2px" style="margin-top: 100px;">Kata Sambutan</h3>
                     </div>
                 </div>
             </div>
@@ -223,7 +223,7 @@
                     <!-- Foto -->
                     @if ($pimpinanStaff && $pimpinanStaff->foto)
                     <div class="image-container mb-3">
-                        <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="{{ $pimpinanStaff->nama }}" class="img-fluid">
+                        <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" alt="{{ $pimpinanStaff->nama }}" class="img-fluid rounded" style="max-width: 250px;">
                     </div>
                     @endif
 
