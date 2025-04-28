@@ -35,13 +35,7 @@ class PimpinanStaffResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('foto')
-                    ->label('Foto')
-                    ->image()
-                    ->imageEditor() // aktifkan fitur crop/edit bawaan Filament
-                    ->imageResizeTargetWidth(1000)
-                    ->imageResizeTargetHeight(1700)
-                    ->required(),
+                Forms\Components\TextInput::make('nama')->required(),
                 Forms\Components\Select::make('status')
                     ->options([
                         'Kepala Program Studi Teknik Informatika' => 'Kepala Program Studi Teknik Informatika',
@@ -50,13 +44,22 @@ class PimpinanStaffResource extends Resource
                     ])
                     ->reactive()
                     ->required(),
-                Forms\Components\TextInput::make('nama')->required(),
+                Forms\Components\FileUpload::make('foto')
+                    ->label('Foto')
+                    ->image()
+                    ->imageEditor() // aktifkan fitur crop/edit bawaan Filament
+                    ->imageResizeTargetWidth(1000)
+                    ->imageResizeTargetHeight(1700)
+                    ->required(),
                 Forms\Components\RichEditor::make('kata_sambutan')
-                ->visible(fn (Get $get) => $get('status') === 'Kepala Program Studi Teknik Informatika') 
-                ->required(fn (Get $get): bool => $get('status') === 'Kepala Program Studi Teknik Informatika')
-                ->columnSpanFull(),
-                Forms\Components\TextInput::make('id_google_scholar'),
-                Forms\Components\TextInput::make('nidn'),
+                    ->visible(fn (Get $get) => $get('status') === 'Kepala Program Studi Teknik Informatika') 
+                    ->required(fn (Get $get): bool => $get('status') === 'Kepala Program Studi Teknik Informatika')
+                    ->columnSpanFull()
+                    ->label('Kata Sambutan'),
+                Forms\Components\TextInput::make('id_google_scholar')
+                    ->label('ID Google Scholar'),
+                Forms\Components\TextInput::make('nidn')
+                    ->label('NIDN'),
                 Forms\Components\TextInput::make('email'),
             ]);
     }
@@ -65,13 +68,17 @@ class PimpinanStaffResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('foto'),
-                Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('nama'),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\ImageColumn::make('foto'),
                 Tables\Columns\TextColumn::make('kata_sambutan')
-                    ->limit(50),
-                Tables\Columns\TextColumn::make('id_google_scholar'),
-                Tables\Columns\TextColumn::make('nidn'),
+                    ->limit(50)
+                    ->label('Kata Sambutan')
+                    ->html(),
+                Tables\Columns\TextColumn::make('id_google_scholar')
+                    ->label('ID Google Scholar'),
+                Tables\Columns\TextColumn::make('nidn')
+                    ->label('NIDN'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

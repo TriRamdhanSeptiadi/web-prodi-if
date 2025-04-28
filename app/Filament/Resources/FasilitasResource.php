@@ -30,8 +30,10 @@ class FasilitasResource extends Resource
                 Forms\Components\Select::make('kampus_id')
                     ->relationship('kampus', 'nama')
                     ->required(),
-                Forms\Components\TextInput::make('nama'),
-                Forms\Components\FileUpload::make('gambar'),
+                Forms\Components\TextInput::make('nama')
+                    ->label('Nama Fasilitas'),
+                Forms\Components\FileUpload::make('gambar')
+                    ->label('Foto'),
                 Forms\Components\RichEditor::make('deskripsi')
                     ->columnSpanFull()
             ]);
@@ -42,9 +44,12 @@ class FasilitasResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('kampus.nama')->label('Kampus')->sortable(),
-                Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\ImageColumn::make('gambar'),
-                Tables\Columns\TextColumn::make('deskripsi'),
+                Tables\Columns\TextColumn::make('nama')
+                    ->label('Nama Fasilitas'),
+                Tables\Columns\ImageColumn::make('gambar')
+                    ->label('Foto'),
+                Tables\Columns\TextColumn::make('deskripsi')
+                    ->html(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

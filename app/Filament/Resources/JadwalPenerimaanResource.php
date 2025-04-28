@@ -30,11 +30,19 @@ class JadwalPenerimaanResource extends Resource
                 Forms\Components\RichEditor::make('teks')
                     ->columnSpanFull()
                     ->helperText('Teks singkat jadwal penerimaan (opsional). Kosongkan jika tidak ada informasi tambahan.'),
-                Forms\Components\DatePicker::make('pendaftaran_sampai_dengan')->required(),
+                Forms\Components\DatePicker::make('pendaftaran_sampai_dengan')
+                    ->required()
+                    ->label('Pendaftaran Sampai Dengan'),
                 Forms\Components\DatePicker::make('tes')->required(),
-                Forms\Components\DatePicker::make('pengumuman_hasil_tes')->required(),
-                Forms\Components\DatePicker::make('masa_orientasi')->required(),
-                Forms\Components\DatePicker::make('perkuliahan_perdana')->required(),
+                Forms\Components\DatePicker::make('pengumuman_hasil_tes')
+                    ->required()
+                    ->label('Pengumuman Hasil Tes'),
+                Forms\Components\DatePicker::make('masa_orientasi')
+                    ->required()
+                    ->label('Masa Orientasi'),
+                Forms\Components\DatePicker::make('perkuliahan_perdana')
+                    ->required()
+                    ->label('Perkuliahan Perdana'),
             ]);
     }
 
@@ -43,22 +51,27 @@ class JadwalPenerimaanResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('teks')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('pendaftaran_sampai_dengan')
                     ->date()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('Pendaftaran Sampai Dengan'),
                 Tables\Columns\TextColumn::make('tes')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('pengumuman_hasil_tes')
                     ->date()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('Pengumuman Hasil Tes'),
                 Tables\Columns\TextColumn::make('masa_orientasi')
                     ->date()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('Masa Orientasi'),
                 Tables\Columns\TextColumn::make('perkuliahan_perdana')
                     ->date()
-                    ->sortable(),
+                    ->sortable()
+                    ->label('Perkuliahan Perdana'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

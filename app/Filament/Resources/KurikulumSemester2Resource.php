@@ -27,9 +27,12 @@ class KurikulumSemester2Resource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('kode_mata_kuliah'),
-                Forms\Components\TextInput::make('nama_mata_kuliah'),
+                Forms\Components\TextInput::make('kode_mata_kuliah')
+                    ->label('Kode Mata Kuliah'),
+                Forms\Components\TextInput::make('nama_mata_kuliah')
+                    ->label('Nama Mata Kuliah'),
                 Forms\Components\TextInput::make('sks')
+                    ->label('SKS'),
             ]);
     }
 
@@ -38,11 +41,14 @@ class KurikulumSemester2Resource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('kode_mata_kuliah')
-                    ->limit(50),
+                    ->limit(50)
+                    ->label('Kode Mata Kuliah'),
                 Tables\Columns\TextColumn::make('nama_mata_kuliah')
-                    ->limit(50),
+                    ->limit(50)
+                    ->label('Nama Mata Kuliah'),
                 Tables\Columns\TextColumn::make('sks')
-                    ->limit(50),
+                    ->limit(50)
+                    ->label('SKS'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

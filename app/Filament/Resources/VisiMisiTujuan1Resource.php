@@ -28,13 +28,10 @@ class VisiMisiTujuan1Resource extends Resource
         return $form
             ->schema([
                 Forms\Components\RichEditor::make('visi')
-                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('misi')
-                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('tujuan')
-                    ->required()
                     ->columnSpanFull(),
             ]);
     }
@@ -44,11 +41,14 @@ class VisiMisiTujuan1Resource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('visi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('misi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('tujuan')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

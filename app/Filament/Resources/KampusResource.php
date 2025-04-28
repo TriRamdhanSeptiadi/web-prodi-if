@@ -28,7 +28,8 @@ class KampusResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nama'),
-                Forms\Components\FileUpload::make('gambar'),
+                Forms\Components\FileUpload::make('gambar')
+                    ->label('Foto'),
                 Forms\Components\RichEditor::make('deskripsi')
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('alamat')
@@ -42,7 +43,8 @@ class KampusResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\ImageColumn::make('gambar'),
+                Tables\Columns\ImageColumn::make('gambar')
+                    ->label('Foto'),
                 Tables\Columns\TextColumn::make('deskripsi')
                     ->limit(50),
                 Tables\Columns\TextColumn::make('alamat')

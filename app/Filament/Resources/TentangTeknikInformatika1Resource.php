@@ -27,7 +27,9 @@ class TentangTeknikInformatika1Resource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('thumbnail')->required(),
+                Forms\Components\FileUpload::make('thumbnail')
+                    ->required()
+                    ->label('Gambar'),
                 Forms\Components\RichEditor::make('deskripsi')
                         ->required()
                         ->columnSpanFull(),
@@ -38,9 +40,11 @@ class TentangTeknikInformatika1Resource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('thumbnail'),
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->label('Gambar'),
                 Tables\Columns\TextColumn::make('deskripsi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
