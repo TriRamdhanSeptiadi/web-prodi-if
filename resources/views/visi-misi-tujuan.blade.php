@@ -46,28 +46,46 @@
                         </div>
 
                         <div class="tab-pane fade" id="misi" role="tabpanel">
-                            <h6 class="fw-bold text-start mb-0" style="color: black; font-size: 21px;" data-aos="fade-right" data-aos-duration="1000">Misi</h6>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered mt-1" data-aos="fade-up" data-aos-duration="1000">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 4%;">No</th>
-                                                <th>Misi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @php $counter = 1; @endphp
-                                            @foreach ($visiMisiTujuan as $item)
-                                            <tr>
-                                                <td class="fs-15">{{ $counter++ }}</td>
-                                                @if ($item->misi)
-                                                <td style="text-align: justify;" class="fs-15">{!! $item->misi !!}</td>
-                                                @endif
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <h6 class="fw-bold text-start mb-0"
+                            style="color: black; font-size: 21px;"
+                            data-aos="fade-right"
+                            data-aos-duration="1000">
+                            Misi
+                        </h6>
+                        <div class="table-responsive">
+                            <table class="table table-bordered mt-1"
+                                data-aos="fade-up"
+                                data-aos-duration="1000">
+                            <thead>
+                                <tr>
+                                <th style="width: 4%;">No</th>
+                                <th>Misi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($visiMisiTujuan as $item)
+                                @if (is_array($item->misi))
+                                    @foreach ($item->misi as $index => $m)
+                                    <tr>
+                                        <td class="fs-15 text-center">{{ $index + 1 }}</td>
+                                        <td class="fs-15" style="text-align: justify;">
+                                        {!! $m['text'] !!}
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                @else
+                                    {{-- Fallback: kalau data lama masih berupa teks --}}
+                                    <tr>
+                                    <td class="fs-15 text-center">1</td>
+                                    <td class="fs-15" style="text-align: justify;">
+                                        {!! $item->misi !!}
+                                    </td>
+                                    </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                            </table>
+                        </div>
                         </div>
 
                         <div class="tab-pane fade" id="tujuan" role="tabpanel">
@@ -81,15 +99,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @php $counter = 1; @endphp
-                                            @foreach ($visiMisiTujuan as $item)
+                                        @foreach ($visiMisiTujuan as $item)
+                                        @if (is_array($item->tujuan))
+                                            @foreach ($item->tujuan as $index => $m)
                                             <tr>
-                                                <td class="fs-15">{{ $counter++ }}</td>
-                                                @if ($item->tujuan)
-                                                <td style="text-align: justify;" class="fs-15">{!! $item->tujuan !!}</td>
-                                                @endif
+                                                <td class="fs-15 text-center">{{ $index + 1 }}</td>
+                                                <td class="fs-15" style="text-align: justify;">
+                                                {!! $m['text'] !!}
+                                                </td>
                                             </tr>
                                             @endforeach
+                                        @else
+                                            {{-- Fallback: kalau data lama masih berupa teks --}}
+                                            <tr>
+                                            <td class="fs-15 text-center">1</td>
+                                            <td class="fs-15" style="text-align: justify;">
+                                                {!! $item->tujuan !!}
+                                            </td>
+                                            </tr>
+                                        @endif
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

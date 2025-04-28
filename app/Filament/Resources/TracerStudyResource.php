@@ -27,10 +27,18 @@ class TracerStudyResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('gambar1')->required(),
-                Forms\Components\FileUpload::make('gambar2')->required(),
-                Forms\Components\FileUpload::make('gambar3')->required(),
-                Forms\Components\FileUpload::make('gambar4')->required(),
+                Forms\Components\FileUpload::make('gambar1')
+                    ->required()
+                    ->label('Waktu Tunggu Lulusan Program Studi S1 - Teknik Informatika'),
+                Forms\Components\FileUpload::make('gambar2')
+                    ->required()
+                    ->label('Tingkat Kesesuaian Pekerjaan'),
+                Forms\Components\FileUpload::make('gambar3')
+                    ->required()
+                    ->label('Lingkup Tempat Kerja'),
+                Forms\Components\FileUpload::make('gambar4')
+                    ->required()
+                    ->label('Survey Kepuasan Pengguna Lulusan Teknik Informatika Universitas Wanita Internasional'),
             ]);
     }
 

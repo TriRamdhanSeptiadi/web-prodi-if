@@ -6,6 +6,10 @@ use App\Filament\Resources\VisiMisiTujuanResource\Pages;
 use App\Filament\Resources\VisiMisiTujuanResource\RelationManagers;
 use App\Models\VisiMisiTujuan;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -28,14 +32,27 @@ class VisiMisiTujuanResource extends Resource
         return $form
             ->schema([
                 Forms\Components\RichEditor::make('visi')
-                    ->required()
                     ->columnSpanFull(),
-                Forms\Components\RichEditor::make('misi')
-                    ->required()
-                    ->columnSpanFull(),
-                Forms\Components\RichEditor::make('tujuan')
-                    ->required()
-                    ->columnSpanFull(),
+                Repeater::make('misi')
+                    ->label('Misi')
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('text')
+                            ->label('Misi')
+                            ->required(),
+                    ])
+                    ->defaultItems(1)
+                    ->createItemButtonLabel('Tambah Baris Misi'),
+                Repeater::make('tujuan')
+                    ->label('Tujuan')
+                    ->columnSpanFull()
+                    ->schema([
+                        TextInput::make('text')
+                            ->label('Tujuan')
+                            ->required(),
+                    ])
+                    ->defaultItems(1)
+                    ->createItemButtonLabel('Tambah Baris Tujuan'),
             ]);
     }
 
@@ -47,8 +64,19 @@ class VisiMisiTujuanResource extends Resource
                     ->limit(50)
                     ->html(),
                 Tables\Columns\TextColumn::make('misi')
-                    ->limit(50)
-                    ->html(),
+                    ->formatStateUsing(function ($state): string {
+                        if (! is_array($state)) {
+                            return (string) $state;
+                        }
+
+                        $lines = collect($state)
+                            ->pluck('text')
+                            ->map(fn($text, $i) => ($i + 1) . '. ' . $text);
+
+                        return $lines->implode('<br>');
+                    })
+                    ->html()
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('tujuan')
                     ->limit(50)
                     ->html(),

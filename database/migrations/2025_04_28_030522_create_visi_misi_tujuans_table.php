@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('visi_misi_tujuans', function (Blueprint $table) {
             $table->id();
             $table->text('visi');
-            $table->text('misi');
-            $table->text('tujuan');
+            $table->json('misi')->nullable();
+            $table->json('tujuan')->nullable();
             $table->timestamps();
         });
     }

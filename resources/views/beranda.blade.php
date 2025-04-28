@@ -102,9 +102,9 @@
                             <h2 class="section-title text-white fw-700 ls-minus-1px z-index-1 position-relative">Visi, Misi dan Tujuan</h2>
                         </div>
                     </div>
-                    <div class="row row-cols-1 row-cols-md-3 justify-content-center" data-anime='{ "el": "childs", "translateX": [-30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
+                    <div class="row row-cols-1 row-cols-md-3 justify-content-center align-items-start" data-anime='{ "el": "childs", "translateX": [-30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
                         <!-- Start Process Step Item -->
-                        <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 sm-mb-40px">
+                        <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 sm-mb-40px d-flex flex-column">
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
                                 <!-- Link di sekitar elemen bulat -->
@@ -116,13 +116,16 @@
                                 </a>
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Visi</span>
-                            @if ($visiMisiTujuan && $visiMisiTujuan->visi)
-                            <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->visi !!}</p>
-                            @endif
+                            <div class="mt-auto">
+                                @if ($visiMisiTujuan && $visiMisiTujuan->visi)
+                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->visi !!}</p>
+                                @endif
+                            </div>
                         </div>
                         <!-- End Process Step Item -->
-                        <!-- start process step item -->
-                        <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 sm-mb-40px">
+
+                        <!-- Start Process Step Item -->
+                        <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 sm-mb-40px d-flex flex-column">
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2"></span>
                                 <!-- Link di sekitar elemen bulat -->
@@ -134,13 +137,22 @@
                                 </a>
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Misi</span>
-                            @if ($visiMisiTujuan && $visiMisiTujuan->misi)
-                            <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->misi !!}</p>
-                            @endif
+                            <div class="mt-11">
+                                @if ($visiMisiTujuan && is_array($visiMisiTujuan->misi))
+                                    <p class="w-80 md-w-90 d-inline-block text-center">
+                                        @foreach($visiMisiTujuan->misi as $m)
+                                            <strong>{{ $loop->iteration }}.</strong> {!! $m['text'] !!}<br>
+                                        @endforeach
+                                    </p>
+                                @elseif ($visiMisiTujuan)
+                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->misi !!}</p>
+                                @endif
+                            </div>
                         </div>
-                        <!-- end process step item -->
-                        <!-- start process step item -->
-                        <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01">
+                        <!-- End Process Step Item -->
+
+                        <!-- Start Process Step Item -->
+                        <div class="col text-center last-paragraph-no-margin hover-box process-step-style-01 d-flex flex-column">
                             <div class="process-step-icon-box position-relative mb-25px">
                                 <span class="progress-step-separator bg-white w-60 separator-line-1px opacity-2 d-md-none"></span>
                                 <!-- Link di sekitar elemen bulat -->
@@ -152,11 +164,19 @@
                                 </a>
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Tujuan</span>
-                            @if ($visiMisiTujuan && $visiMisiTujuan->tujuan)
-                            <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->tujuan !!}</p>
-                            @endif
+                            <div class="mt-11">
+                                @if ($visiMisiTujuan && is_array($visiMisiTujuan->tujuan))
+                                    <p class="w-80 md-w-90 d-inline-block text-center">
+                                        @foreach($visiMisiTujuan->tujuan as $m)
+                                            <strong>{{ $loop->iteration }}.</strong> {!! $m['text'] !!}<br>
+                                        @endforeach
+                                    </p>
+                                @elseif ($visiMisiTujuan)
+                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->tujuan !!}</p>
+                                @endif
+                            </div>
                         </div>
-                        <!-- end process step item -->
+                        <!-- End Process Step Item -->
                     </div>
                     <div class="position-absolute top-5px ls-minus-6px left-0px w-100 text-center" data-bottom-top="transform: translate3d(380px, 0px, 0px);" data-top-bottom="transform: translate3d(-380px, 0px, 0px);">
                         <div class="fs-200 sm-fs-170 xs-fs-110 fw-700 opacity-1">Visi, Misi dan Tujuan</div>

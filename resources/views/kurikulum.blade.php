@@ -703,40 +703,37 @@
                         </p>
 
                         <!-- Gambar-gambar -->
+                        @php
+                            $imageCaptions = [
+                                1 => 'Waktu Tunggu Lulusan Program Studi S1 - Teknik Informatika',
+                                2 => 'Tingkat Kesesuaian Pekerjaan',
+                                3 => 'Lingkup Tempat Kerja',
+                                4 => 'Survey Kepuasan Pengguna Lulusan Teknik Informatika Universitas Wanita Internasional',
+                            ];
+                        @endphp
                         <div class="row mt-4">
                             @foreach ($tracerStudy as $item)
-                                @if ($item->gambar1)
-                                    <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
-                                        <img class="img-fluid w-75 animation-float" 
-                                            src="{{ asset('storage/' . $item->gambar1) }}" 
-                                            alt="Gambar 1" 
-                                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                                    </div>
-                                @endif
-                                @if ($item->gambar2)
-                                    <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
-                                        <img class="img-fluid w-75 animation-float" 
-                                            src="{{ asset('storage/' . $item->gambar2) }}" 
-                                            alt="Gambar 2" 
-                                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":100}'>
-                                    </div>
-                                @endif
-                                @if ($item->gambar3)
-                                    <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
-                                        <img class="img-fluid w-75 animation-float" 
-                                            src="{{ asset('storage/' . $item->gambar3) }}" 
-                                            alt="Gambar 3" 
-                                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":150}'>
-                                    </div>
-                                @endif
-                                @if ($item->gambar4)
-                                    <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
-                                        <img class="img-fluid w-75 animation-float" 
-                                            src="{{ asset('storage/' . $item->gambar4) }}" 
-                                            alt="Gambar 4" 
-                                            data-anime='{ "effect": "slide", "color": "#ffffff", "direction":"lr", "easing": "easeOutQuad", "delay":200}'>
-                                    </div>
-                                @endif
+                                @for ($i = 1; $i <= 4; $i++)
+                                    @php
+                                        $field = 'gambar' . $i;
+                                    @endphp
+
+                                    @if (! empty($item->$field))
+                                        <div class="col-md-6 col-12 mb-4 d-flex flex-column align-items-center">
+                                            <img
+                                                class="img-fluid w-75 animation-float"
+                                                src="{{ asset('storage/' . $item->$field) }}"
+                                                alt="Gambar {{ $i }}"
+                                                data-anime='{ "effect":"slide", "direction":"lr", "delay":{{ 50 * $i }} }'
+                                            >
+
+                                            {{-- Caption otomatis dari map --}}
+                                            <p class="mt-2 text-center">
+                                                {{ $imageCaptions[$i] }}
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endfor
                             @endforeach
                         </div>
                     </div>
