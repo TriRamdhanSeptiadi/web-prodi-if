@@ -231,7 +231,7 @@
             
             <!-- Mata Kuliah dan Jadwal -->
             <div class="col-md-8">
-                <h4>Data Penelitian</h4>
+                <h1 class="section-title">Data Penelitian</h1>
                 <table class="table table-bordered mt-3 text-center">
                     <thead class="table-light">
                         <tr>
@@ -263,75 +263,78 @@
             </div>
 
             @if (!empty($citationGraph))
-                <h5 class="mt-4">Statistik Kutipan per Tahun</h5>
-                <canvas id="citationChart" width="600" height="300"></canvas>
+            <h1 class="mt-4 section-title">Statistik Kutipan</h1>
 
-                <script>
-                    // Ambil data mentah dari PHP ke JS
-                    const citationData = @json($citationGraph);
-                    console.log(citationData); // Cek di console: harus muncul array of objects
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+                <!-- Grafik Kutipan per Tahun -->
+                <div style="flex: 1.3; min-width: 300px; max-width: 600px;">
+                    <h1 class="section-title" style="font-size: 20px;">Kutipan per Tahun</h2>
+                    <canvas id="citationChart" style="width: 100%; height: 400px;"></canvas> <!-- ubah height jadi 400px -->
+                </div>
 
-                    // Buat dua array: labels (tahun) dan values (jumlah kutipan)
-                    const labels = citationData.map(item => item.year);
-                    const values = citationData.map(item => item.citations);
+                <!-- Tabel Statistik Kutipan -->
+                <div style="flex: 1; min-width: 250px; max-width: 400px;">
+                    <h2 class="section-title" style="font-size: 20px;">Ringkasan Statistik</h2>
+                    <table class="table table-bordered text-center" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th class="align-middle"></th>
+                                <th class="align-middle">Semua</th>
+                                <th class="align-middle">Sejak 2020</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">Kutipan</td>
+                                <td class="align-middle">{{ $citationStats['citations']['all'] ?? 0 }}</td>
+                                <td class="align-middle">{{ $citationStats['citations']['since_2020'] ?? 0 }}</td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">Indeks-h</td>
+                                <td class="align-middle">{{ $citationStats['h_index']['all'] ?? 0 }}</td>
+                                <td class="align-middle">{{ $citationStats['h_index']['since_2020'] ?? 0 }}</td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">Indeks-i10</td>
+                                <td class="align-middle">{{ $citationStats['i10_index']['all'] ?? 0 }}</td>
+                                <td class="align-middle">{{ $citationStats['i10_index']['since_2020'] ?? 0 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    // Inisialisasi Chart.js
-                    const ctx = document.getElementById('citationChart').getContext('2d');
-                    new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'Jumlah Kutipan',
-                                data: values,
-                                backgroundColor: 'rgba(13,71,161,0.6)',   // warna batang
-                                borderColor: 'rgba(13,71,161,1)',         // warna garis tepi
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    precision: 0
-                                }
+            <script>
+                const citationData = @json($citationGraph);
+                const labels = citationData.map(item => item.year);
+                const values = citationData.map(item => item.citations);
+
+                const ctx = document.getElementById('citationChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Jumlah Kutipan',
+                            data: values,
+                            backgroundColor: 'rgba(13,71,161,0.6)',
+                            borderColor: 'rgba(13,71,161,1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                precision: 0
                             }
                         }
-                    });
-                </script>
-            @endif
-
-            @isset($citationStats['citations'])
-            <h5 class="mt-4">Statistik Kutipan</h5>
-            <table class="table table-bordered text-center" style="max-width: 500px">
-                <thead>
-                    <tr>
-                        <th class="align-middle"></th>
-                        <th class="align-middle">Semua</th>
-                        <th class="align-middle">Sejak 2020</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="align-middle">Kutipan</td>
-                        <td class="align-middle">{{ $citationStats['citations']['all'] ?? 0 }}</td>
-                        <td class="align-middle">{{ $citationStats['citations']['since_2020'] ?? 0 }}</td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle">Indeks-h</td>
-                        <td class="align-middle">{{ $citationStats['h_index']['all'] ?? 0 }}</td>
-                        <td class="align-middle">{{ $citationStats['h_index']['since_2020'] ?? 0 }}</td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle">Indeks-i10</td>
-                        <td class="align-middle">{{ $citationStats['i10_index']['all'] ?? 0 }}</td>
-                        <td class="align-middle">{{ $citationStats['i10_index']['since_2020'] ?? 0 }}</td>
-                    </tr>
-                </tbody>
-            </table>
+                    }
+                });
+            </script>
         @else
             <p>Data statistik kutipan tidak tersedia.</p>
-        @endisset
+        @endif
         </div>
         <!-- end section -->
         <!-- start footer -->

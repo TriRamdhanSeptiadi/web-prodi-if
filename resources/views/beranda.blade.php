@@ -26,7 +26,7 @@
                                 <i class="bi bi-patch-check-fill fs-15 text-dark-gray"></i>
                             </div>
                             <div class="feature-box-content">
-                                <span class="fs-14 fw-600 text-dark-gray text-uppercase">Kreatif Berkreasi</span>
+                                <span class="fs-14 fw-600 text-dark-gray text-uppercase">Inovatif Berkarya</span>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 <i class="bi bi-geo-alt-fill fs-15 text-dark-gray"></i>
                             </div>
                             <div class="feature-box-content">
-                                <span class="fs-14 fw-600 text-dark-gray text-uppercase">Lokasi di Jl. Pasir Kaliki</span>
+                                <span class="fs-14 fw-600 text-dark-gray text-uppercase">Kampus Strategis</span>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <i class="bi bi-heart-fill fs-15 text-dark-gray"></i>
                             </div>
                             <div class="feature-box-content">
-                                <span class="fs-14 fw-600 text-dark-gray text-uppercase">Informatika Berprestasi</span>
+                                <span class="fs-14 fw-600 text-dark-gray text-uppercase">Kompeten di Bidangnya</span>
                             </div>
                         </div>
                     </div>
