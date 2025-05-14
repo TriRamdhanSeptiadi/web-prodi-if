@@ -212,7 +212,7 @@
             <!-- Profil Dosen -->
             <div class="col-md-4 text-center p-3 border rounded shadow-sm">
                 @if ($pimpinanStaff && $pimpinanStaff->foto)
-                <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" class="img-fluid rounded-circle" width="150" alt="Foto Dosen">
+                <img src="{{ asset('storage/' . $pimpinanStaff->foto) }}" class="img-fluid" width="200" alt="Foto Dosen">
                 @endif
                 <h5 class="card-title fw-600 fs-17 lh-28 text-dark-gray text-dark-gray-hover d-inline-block w-95 sm-w-100 mt-5">{{ $pimpinanStaff->nama }}</h5>
                 <p>

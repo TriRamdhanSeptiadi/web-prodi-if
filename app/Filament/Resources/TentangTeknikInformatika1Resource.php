@@ -31,8 +31,8 @@ class TentangTeknikInformatika1Resource extends Resource
                     ->required()
                     ->label('Gambar'),
                 Forms\Components\RichEditor::make('deskripsi')
-                        ->required()
-                        ->columnSpanFull(),
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 

@@ -31,7 +31,7 @@ class KataSambutanResource extends Resource
                 Forms\Components\FileUpload::make('foto')
                     ->label('Foto')
                     ->image()
-                    ->imageEditor() // aktifkan fitur crop/edit bawaan Filament
+                    ->imageEditor()
                     ->imageResizeTargetWidth(1000)
                     ->imageResizeTargetHeight(1700)
                     ->required(),

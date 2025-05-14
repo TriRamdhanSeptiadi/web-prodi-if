@@ -699,7 +699,7 @@
 
                         <!-- Paragraf -->
                         <p class="w-80 xl-w-90 lg-w-100 mx-auto text-muted fs-15" style="text-align: justify;">
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.    
+                        Sebagai bagian dari upaya evaluasi dan peningkatan kualitas pendidikan, Program Studi secara berkala melakukan Tracer Study untuk melacak jejak lulusan setelah menyelesaikan pendidikan. Studi ini bertujuan untuk memperoleh informasi mengenai relevansi kurikulum, kompetensi lulusan, dan ketercapaian karier alumni di dunia kerja. Data yang diperoleh dari tracer study menjadi bahan masukan penting dalam pengembangan program studi agar semakin responsif terhadap kebutuhan industri dan masyarakat. Partisipasi alumni dalam kegiatan ini sangat berharga untuk mendorong kemajuan institusi dan menciptakan jejaring profesional yang kuat. Berikut ini adalah hasil dan dokumentasi kegiatan Tracer Study Program Studi: 
                         </p>
 
                         <!-- Gambar-gambar -->

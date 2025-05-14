@@ -31,12 +31,11 @@ class PublikasiResource extends Resource
                 Forms\Components\TextInput::make('judul')->required(),
                 Forms\Components\FileUpload::make('gambar')->required(),
                 Forms\Components\Select::make('status')
-                ->options([
-                    'Artikel' => 'Artikel',
-                    'Berita' => 'Berita',
-                    'Kegiatan' => 'Kegiatan',
-                ])
-                ->required(),
+                    ->options([
+                        'Berita' => 'Berita',
+                    ])
+                    ->default('Berita')
+                    ->required(),
                 Forms\Components\DatePicker::make('waktu')->required(),
                 Forms\Components\RichEditor::make('deskripsi')
                     ->columnSpanFull(),

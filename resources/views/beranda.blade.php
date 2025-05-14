@@ -9,7 +9,7 @@
                     <div class="container h-100 position-relative">
                         <div class="row align-items-center justify-content-center h-100">
                     <div class="col-12 text-center">
-                        <div class="fs-120 lh-120 sm-fs-100 text-dark-gray fw-600 ls-minus-4px" data-anime='{ "el": "lines", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 500, "staggervalue": 300, "easing": "easeOutQuad" }'>Program Studi Teknik Informatika</div>
+                        <div class="fs-120 lh-120 sm-fs-100 text-dark-gray fw-600 ls-minus-4px" data-anime='{ "el": "lines", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 500, "staggervalue": 300, "easing": "easeOutQuad" }'>Teknik Informatika</div>
                     </div>
                 </div>
             </div>
@@ -138,14 +138,8 @@
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Misi</span>
                             <div class="mt-11">
-                                @if ($visiMisiTujuan && is_array($visiMisiTujuan->misi))
-                                    <p class="w-80 md-w-90 d-inline-block text-center">
-                                        @foreach($visiMisiTujuan->misi as $m)
-                                            <strong>{{ $loop->iteration }}.</strong> {!! $m['text'] !!}<br>
-                                        @endforeach
-                                    </p>
-                                @elseif ($visiMisiTujuan)
-                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->misi !!}</p>
+                                @if ($visiMisiTujuan && is_array($visiMisiTujuan->misi) && count($visiMisiTujuan->misi) > 0)
+                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->misi[0]['text'] !!}</p>
                                 @endif
                             </div>
                         </div>
@@ -165,14 +159,8 @@
                             </div>
                             <span class="d-inline-block fs-32 fw-500 text-white mb-5px">Tujuan</span>
                             <div class="mt-11">
-                                @if ($visiMisiTujuan && is_array($visiMisiTujuan->tujuan))
-                                    <p class="w-80 md-w-90 d-inline-block text-center">
-                                        @foreach($visiMisiTujuan->tujuan as $m)
-                                            <strong>{{ $loop->iteration }}.</strong> {!! $m['text'] !!}<br>
-                                        @endforeach
-                                    </p>
-                                @elseif ($visiMisiTujuan)
-                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->tujuan !!}</p>
+                                @if ($visiMisiTujuan && is_array($visiMisiTujuan->tujuan) && count($visiMisiTujuan->tujuan) > 0)
+                                    <p class="w-80 md-w-90 d-inline-block">{!! $visiMisiTujuan->tujuan[0]['text'] !!}</p>
                                 @endif
                             </div>
                         </div>

@@ -28,18 +28,18 @@ class TentangTeknikInformatikaResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('thumbnail')
-                        ->label('Gambar')
-                        ->image()
-                        ->imageEditor() // aktifkan fitur crop/edit bawaan Filament
-                        ->imageResizeMode('cover') // agar memenuhi ukuran target
-                        ->imageCropAspectRatio('960:600') // rasio 960:700
-                        ->imageResizeTargetWidth(960)
-                        ->imageResizeTargetHeight(600)
-                        ->directory('Gambar') // direktori penyimpanan, opsional
-                        ->required(),
+                    ->label('Gambar')
+                    ->image()
+                    ->imageEditor() 
+                    ->imageResizeMode('cover') 
+                    ->imageCropAspectRatio('960:600') 
+                    ->imageResizeTargetWidth(960)
+                    ->imageResizeTargetHeight(600)
+                    ->directory('Gambar') 
+                    ->required(),
                 Forms\Components\RichEditor::make('deskripsi')
-                        ->required()
-                        ->columnSpanFull(),
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
